@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_main">
+        <item>==선택하세요==</item>
+    </string-array>
+
+    <string-array name="spinnerEmpty">
+        <item>==선택하세요==</item>
+    </string-array>
+
+
+    <string-array name="spinner_manufacturing">
+        <item>==선택하세요==</item>
+    </string-array>
+
+    <string-array name="spinner_agriculture_forestry_fishing">
+        <item>==선택하세요==</item>
+    </string-array>
+    <string-array name="spinner_agriculture">
+        <item>==선택하세요==</item>
+    </string-array>
+    <string-array name="spinner_forestry">
+        <item>==선택하세요==</item>
+    </string-array>
+
+    <string-array name="spinner_mine">
+        <item>==선택하세요==</item>
+    </string-array>
+
+    <string-array name="spinner_business">
+        <item>==선택하세요==</item>
+    </string-array>
+
+    <string-array name="spinner_business1">
+        <item>==선택하세요==</item>
+    </string-array>
+</resources>

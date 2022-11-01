@@ -81,6 +81,7 @@
                     android:layout_gravity="center|right"
                     android:layout_marginHorizontal="10dp"
                     android:layout_weight="0.5"
+                    android:backgroundTint="#00FFFFFF"
                     app:srcCompat="@drawable/car_ui_icon_search" />
 
             </LinearLayout>

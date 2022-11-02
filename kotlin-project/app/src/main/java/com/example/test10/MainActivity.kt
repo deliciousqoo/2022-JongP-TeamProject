@@ -42,10 +42,30 @@ data class CompanyData(
     }
 }
 
+//행사안건데이터
+data class AgendaData(
+    var num: Int,
+    var name: String
+){
+    private var item: String? = null
+
+    fun getItem(): String? {
+        return item
+    }
+
+    fun setItem(item: String?) {
+        this.item = item
+    }
+
+
+    fun Item(item: String?) {
+        this.item = item
+    }
+}
+
 //하단네비
 @Suppress("UNREACHABLE_CODE")
 class MainActivity : AppCompatActivity() {
-
 
 
     private val frame: RelativeLayout by lazy { // activity_main의 화면 부분

@@ -19,6 +19,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="1"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/mypage" />
 
         <Space
@@ -64,7 +65,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:backgroundTint="#8BC34A"
-            android:text="참석" />
+            android:text="@string/attendance" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

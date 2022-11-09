@@ -7,21 +7,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_view.view.*
 
 class Fragment5 : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mAdapter: RecyclerAdapter? = null
-    private var list: ArrayList<AgendaData>? = null
+    private var mAdapter: RecyclerAdapter5? = null
+    private var list: ArrayList<Agenda>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
         }
+
         onLoadMore()
     }
 
@@ -31,7 +30,6 @@ class Fragment5 : Fragment(),MainActivity.onBackPressedListener {
         loadData()
     }
 
-
     //스크롤이 끝에 도달하였을 때 실행 내용
     fun onLoadMore() {
         Log.d("MainActivity_", "onLoadMore")
@@ -39,21 +37,17 @@ class Fragment5 : Fragment(),MainActivity.onBackPressedListener {
         Handler().postDelayed(Runnable {
             list!!.clear()
             mAdapter?.setProgressMore(false)
-
-            ///////이부분에을 자신의 프로젝트에 맞게 설정하면 됨
-            //다음 페이지? 내용을 불러오는 부분
-            val start: Int = mAdapter?.itemCount!!
-            val end = start + 15
-            for (i in start + 1..end) {
-                list!!.add(AgendaData(
-                    ContextCompat.getDrawable(requireContext(), R.drawable.mypage)!!,
-                    "" + i,
-                    "name $i"))
-            }
-            //////////////////////////////////////////////////
             mAdapter?.addItemMore(list)
-            mAdapter?.setMoreLoading(false)
         }, 1000)
+    }
+
+    private fun loadData() {
+        for (i in 1..10) {
+            list!!.add(
+                Agenda(i,"agenda $i")
+            )
+        }
+        mAdapter?.addAll(list)
     }
 
     override fun onCreateView(
@@ -66,8 +60,9 @@ class Fragment5 : Fragment(),MainActivity.onBackPressedListener {
         list = ArrayList()
         val mRecyclerView = view.findViewById<View>(R.id.agendaList) as RecyclerView
         val mLayoutManager = LinearLayoutManager(requireContext())
+
         mRecyclerView.layoutManager = mLayoutManager
-        mAdapter = RecyclerAdapter(this)    //
+        mAdapter = RecyclerAdapter5(this)    //
         mAdapter!!.setLinearLayoutManager(mLayoutManager)
         mAdapter!!.setRecyclerView(mRecyclerView)
         mRecyclerView.adapter = mAdapter

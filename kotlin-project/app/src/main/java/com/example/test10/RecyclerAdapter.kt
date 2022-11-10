@@ -118,9 +118,9 @@ class RecyclerAdapter(private val onLoadMoreListener: Fragment1) :
         var tvItem2: TextView
 
         init {
-            tvItem = binding.nameUser
+            tvItem = binding.textView5
             //findViewById(R.id.tvItem)
-            tvItem2 = binding.tecUser
+            tvItem2 = binding.textView6
         }
     }
 

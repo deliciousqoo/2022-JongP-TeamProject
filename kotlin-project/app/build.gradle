@@ -45,6 +45,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.android.car.ui:car-ui-lib:2.3.0'
     implementation 'com.google.android.gms:play-services-ads-lite:21.2.0'
+    implementation 'androidx.core:core:1.7.0'
     implementation 'androidx.test:core-ktx:1.4.0'
     implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
     implementation 'com.google.zxing:core:3.4.0'

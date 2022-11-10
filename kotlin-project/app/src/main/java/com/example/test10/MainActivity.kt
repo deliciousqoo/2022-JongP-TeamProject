@@ -3,11 +3,8 @@ package com.example.test10
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,8 +14,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.main.*
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 data class CompanyData(
@@ -43,22 +38,29 @@ data class CompanyData(
 }
 
 //행사안건데이터
-data class AgendaData(
-    var num: Int,
+data class Agenda(
+    var no: Int,
     var name: String
 ){
-    private var item: String? = null
+    private var item: Agenda? = null
 
-    fun getItem(): String? {
+    fun getNo(): String? {
+        return no.toString()
+    }
+
+    fun getAgName(): String? {
+        return name
+    }
+
+    fun getItem(): Agenda? {
         return item
     }
 
-    fun setItem(item: String?) {
+    fun setItem(item: Agenda?) {
         this.item = item
     }
 
-
-    fun Item(item: String?) {
+    fun Item(item: Agenda?) {
         this.item = item
     }
 }

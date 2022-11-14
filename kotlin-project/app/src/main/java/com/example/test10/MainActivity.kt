@@ -8,13 +8,12 @@ import android.view.MenuItem
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.main.*
-import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.RecyclerView
 
 data class CompanyData(
     var img : Drawable,
@@ -112,10 +111,8 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.item2 -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.body_container, Fragment2::class.java, null)
-                            .commit()
-                        bottomMenu = "item2"
+                        startActivity(Intent(applicationContext, Fragment2Activity::class.java))
+                        overridePendingTransition(0, 0)
                         true
                     }
                     R.id.item3 -> {

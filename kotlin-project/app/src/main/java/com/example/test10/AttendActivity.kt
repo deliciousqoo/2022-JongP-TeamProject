@@ -10,7 +10,7 @@ import android.widget.ImageButton
 class AttendActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_attend)
 
         val imgBtn1 = findViewById<ImageButton>(R.id.imageBtn1)
         //val button1 = findViewById<Button>(R.id.button1)

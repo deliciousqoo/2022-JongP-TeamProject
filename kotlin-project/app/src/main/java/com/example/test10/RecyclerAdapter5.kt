@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.ItemView5Binding
 import com.example.test10.databinding.LoadingBinding
 
-class RecyclerAdapter5(private val onLoadMoreListener: Fragment5) :
+class RecyclerAdapter5(private val onLoadMoreListener: ConnectActivity) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val VIEW_ITEM = 1
     private val VIEW_PROG = 0

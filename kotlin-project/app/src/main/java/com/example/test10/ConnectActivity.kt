@@ -20,15 +20,14 @@ class ConnectActivity : AppCompatActivity() {
         val docs = findViewById<Button>(R.id.docs)
 
         overview.setOnClickListener {
-            var contentToast = Toast.makeText(this, "overview", Toast.LENGTH_SHORT)
-            contentToast.show()
-//            val intent = Intent(this, Fragment5::class.java)
-//            startActivity(intent)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment4, Fragment5::class.java, null)
+                .commit()
         }
 
         check.setOnClickListener {
-            val intent = Intent(this, AttendActivity::class.java)
-            startActivity(intent)
+            val attendIntent = Intent(this, AttendActivity::class.java)
+            startActivity(attendIntent)
         }
 
         confirm.setOnClickListener {

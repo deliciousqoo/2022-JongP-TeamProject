@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -111,8 +112,12 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.item2 -> {
-                        startActivity(Intent(applicationContext, Fragment2Activity::class.java))
-                        overridePendingTransition(0, 0)
+                        //startActivity(Intent(applicationContext, Fragment2Activity::class.java))
+                        //overridePendingTransition(0, 0)
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.body_container, Fragment2::class.java, null)
+                            .commit()
+                        bottomMenu = "item2"
                         true
                     }
                     R.id.item3 -> {
@@ -209,6 +214,19 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(frame.id, fragment).commit()
     }
+
+    fun onClick(view: View) {
+
+        when(view.getId())    {
+            R.id.eventBtn1 ->   {
+                Toast.makeText(this@MainActivity, "이동", Toast.LENGTH_SHORT).show()
+                val connectIntent = Intent(this, ConnectActivity::class.java)
+                startActivity(connectIntent)
+            }
+        }
+    }
+
+
 }
 
 

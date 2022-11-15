@@ -144,6 +144,7 @@
                 android:background="?android:attr/listDivider" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/attelistrecycler"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.7" />

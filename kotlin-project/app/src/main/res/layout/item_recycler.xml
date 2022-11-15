@@ -8,6 +8,7 @@
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+        android:id="@+id/atteFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -64,7 +65,6 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:backgroundTint="#8BC34A"
             android:text="@string/attendance" />
 
     </LinearLayout>

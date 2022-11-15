@@ -28,7 +28,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/eventBtn1"
+            android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="256dp"
             android:adjustViewBounds="true"
@@ -36,8 +36,7 @@
             android:drawablePadding="4dp"
             android:scaleType="fitCenter"
             android:gravity="left"
-            android:text="행사 1"
-            android:onClick="onClick"/>
+            android:text="행사 1" />
 
         <TextView
             android:layout_width="match_parent"

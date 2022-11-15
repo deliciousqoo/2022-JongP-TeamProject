@@ -4,28 +4,30 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 
 class AttendActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_attend)
 
-        val imgBtn1 = findViewById<ImageButton>(R.id.imageBtn1)
+        val qrBtn = findViewById<ImageButton>(R.id.qrBtn)
         //val button1 = findViewById<Button>(R.id.button1)
-        val button2 = findViewById<Button>(R.id.button2)
+        val codeBtn = findViewById<Button>(R.id.codeBtn)
         val qrIntent = Intent(this, ScannerActivity::class.java)
         val codeIntent = Intent(this, AttendCodeActivity::class.java)
 
-        imgBtn1.setOnClickListener {
-            Log.d("태그", "1번 클릭")
+        qrBtn.setOnClickListener {
             startActivity(qrIntent)
         }
 
-        button2.setOnClickListener {
-            Log.d("태그", "2번 클릭")
+        codeBtn.setOnClickListener {
             startActivity(codeIntent)
         }
+
+
+
     }
 }

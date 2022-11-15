@@ -1,91 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment4"
-    android:id="@+id/fragment4"
-    android:background="@color/white"
-    android:orientation="vertical"
-    >
+    tools:context=".Fragment5">
 
     <!-- TODO: Update blank fragment layout -->
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/toolbar" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginVertical="55.5dp"
-        android:orientation="vertical">
-
-        <Button
-            android:layout_marginTop="30px"
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:id="@+id/event_overview"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:adjustViewBounds="true"
-            android:drawableTop="@drawable/ic_launcher_background"
-            android:drawablePadding="20px"
-            android:scaleType="fitXY"
-            android:gravity="left|bottom"
-            android:text="행사 개요"
-            />
-
-        <Button
-            android:layout_marginTop="5px"
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:id="@+id/check_attendence"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left|center"
-            android:drawableLeft="@android:drawable/checkbox_on_background"
-            android:drawablePadding="20px"
-            android:text="참석 체크" />
-
-        <Button
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:id="@+id/confirm_attendence"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left|center"
-            android:drawablePadding="20px"
-            android:drawableLeft="@android:drawable/ic_menu_myplaces"
-            android:text="참석자 확인" />
-
-        <Button
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:id="@+id/vote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left|center"
-            android:drawablePadding="20px"
-            android:drawableLeft="@android:drawable/ic_menu_edit"
-            android:text="안건 투표" />
-
-        <Button
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:id="@+id/docs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left|center"
-            android:drawablePadding="20px"
-            android:drawableLeft="@android:drawable/ic_input_get"
-            android:text="행사 자료" />
-
-    </LinearLayout>
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

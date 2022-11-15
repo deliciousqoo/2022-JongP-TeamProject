@@ -35,6 +35,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildToolsVersion '30.0.3'
+    ndkVersion '22.1.7171670'
 
     viewBinding { enable true }
 

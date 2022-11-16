@@ -36,7 +36,7 @@
             android:adjustViewBounds="true"
             android:drawableTop="@drawable/grand"
             android:drawablePadding="20px"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:gravity="left|center"
             android:text="행사 개요"
             />

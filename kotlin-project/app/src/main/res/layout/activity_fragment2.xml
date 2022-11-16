@@ -31,6 +31,8 @@
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
             android:adjustViewBounds="true"
             android:drawableTop="@drawable/grand"
             android:drawablePadding="4dp"

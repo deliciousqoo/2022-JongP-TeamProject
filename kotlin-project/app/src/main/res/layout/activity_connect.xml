@@ -32,12 +32,12 @@
             android:layout_marginRight="20px"
             android:id="@+id/event_overview"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:adjustViewBounds="true"
-            android:drawableTop="@drawable/ic_launcher_background"
+            android:drawableTop="@drawable/grand"
             android:drawablePadding="20px"
             android:scaleType="fitXY"
-            android:gravity="left|bottom"
+            android:gravity="left|center"
             android:text="행사 개요"
             />
 

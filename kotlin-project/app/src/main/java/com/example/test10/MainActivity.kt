@@ -117,7 +117,7 @@ class MainActivity : AppCompatActivity() {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.body_container, Fragment2::class.java, null)
                             .commit()
-                        bottomMenu = "item2"
+                        bottomMenu = "menu"
                         true
                     }
                     R.id.item3 -> {
@@ -195,7 +195,9 @@ class MainActivity : AppCompatActivity() {
                 .setReorderingAllowed(true)
                 .addToBackStack("1")
                 .commit()
-        } else {
+        }
+        else
+        {
             if(main_drawer_layout.isDrawerOpen(GravityCompat.END)){//            Drawer page back
                 main_drawer_layout.closeDrawers()
             } else {//뒤로가기 2번 종료

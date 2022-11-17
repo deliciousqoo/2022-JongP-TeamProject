@@ -2,10 +2,10 @@ package com.example.test10
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_connect.*
 
 class ConnectActivity : AppCompatActivity() {
 
@@ -21,7 +21,7 @@ class ConnectActivity : AppCompatActivity() {
 
         overview.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment4, Fragment5::class.java, null)
+                .replace(R.id.connect, Fragment4::class.java, null)
                 .commit()
         }
 
@@ -45,5 +45,30 @@ class ConnectActivity : AppCompatActivity() {
             contentToast.show()
         }
 
+    }
+
+    interface onBackPressedListener {
+        fun onBackPressed()
+    }
+
+    override fun onBackPressed(){
+        val fragmentList = supportFragmentManager.fragments
+        for (fragment in fragmentList) {
+            if (fragment is onBackPressedListener) {
+                (fragment as onBackPressedListener).onBackPressed()
+                return
+            }
+        }
+    }
+
+    fun OnClick(view: View) {
+        when(view.getId())    {
+            R.id.item1 ->   {
+                val homeIntent = Intent(this, MainActivity::class.java)
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(homeIntent)
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class Fragment4 : Fragment(),ConnectActivity.onBackPressedListener {
+class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +20,7 @@ class Fragment4 : Fragment(),ConnectActivity.onBackPressedListener {
     ): View? {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_4, container, false)
+        return inflater.inflate(R.layout.fragment_connect_1, container, false)
     }
 
     override fun onBackPressed() {

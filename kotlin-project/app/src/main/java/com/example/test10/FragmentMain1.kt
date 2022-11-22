@@ -7,12 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class Fragment1 : Fragment() {
+class FragmentMain1 : Fragment() {
 
     private var mAdapter: RecyclerAdapter? = null
     private var list: ArrayList<CompanyData>? = null
@@ -73,7 +72,7 @@ class Fragment1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val view = inflater.inflate(R.layout.fragment_1, container, false)
+        val view = inflater.inflate(R.layout.fragment_main_1, container, false)
 
         list = ArrayList()
         val mRecyclerView = view.findViewById<View>(R.id.lstCompany) as RecyclerView

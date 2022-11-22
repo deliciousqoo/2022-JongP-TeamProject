@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.test10.databinding.FragmentConnect2Binding
 
-class Fragment2 : Fragment(),MainActivity.onBackPressedListener {
+class FragmentConnect2 : Fragment(),MainActivity.onBackPressedListener {
+
+    private var mBinding: FragmentConnect2Binding? = null
+    private val binding get() = mBinding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +23,13 @@ class Fragment2 : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        mBinding = FragmentConnect2Binding.inflate(inflater, container, false)
+        val mActivity = activity as MainActivity
+        binding.codeBtn.setOnClickListener  {
+            mActivity.changeFragment(5)
+        }
 
-        return inflater.inflate(R.layout.fragment_2, container, false)
+        return binding.root
     }
 
     override fun onBackPressed() {

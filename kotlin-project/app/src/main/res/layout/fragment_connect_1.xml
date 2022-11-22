@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConnectActivity"
-    android:id="@+id/fragment5"
+    tools:context=".FragmentConnectMain"
+    android:id="@+id/fragment_connect_1"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -54,13 +54,13 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="250dp"
+                        android:id="@+id/atteImoticon"
+                        android:layout_width="match_parent"
                         android:layout_height="160dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
-                        app:srcCompat="@drawable/event_office" />
+                        app:srcCompat="@drawable/grand"/>
 
                     <TextView
                         android:id="@+id/explanation"

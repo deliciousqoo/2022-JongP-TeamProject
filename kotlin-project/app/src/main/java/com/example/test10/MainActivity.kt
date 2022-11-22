@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.fragment_connect_2.*
 import kotlinx.android.synthetic.main.main.*
 
 data class CompanyData(
@@ -80,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
         // 애플리케이션 실행 후 첫 화면 설정
         supportFragmentManager.beginTransaction()
-            .replace(R.id.body_container, Fragment1::class.java, null)
+            .replace(R.id.body_container, FragmentMain1::class.java, null)
             .setReorderingAllowed(true)
             .addToBackStack(null)
             .commit()
@@ -92,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
                     R.id.item1 -> {
                          supportFragmentManager.beginTransaction()
-                            .replace(R.id.body_container, Fragment1::class.java, null)
+                            .replace(R.id.body_container, FragmentMain1::class.java, null)
                             .commit()
                         bottomMenu = "home"
                         true
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                         //startActivity(Intent(applicationContext, Fragment2Activity::class.java))
                         //overridePendingTransition(0, 0)
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.body_container, Fragment2::class.java, null)
+                            .replace(R.id.body_container, FragmentMain2::class.java, null)
                             .commit()
                         bottomMenu = "menu"
                         true
@@ -109,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.item3 -> {
 
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.body_container, Fragment3::class.java, null)
+                            .replace(R.id.body_container, FragmentMain3::class.java, null)
                             .commit()
                         bottomMenu = "item3"
                         true
@@ -126,8 +127,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true
-
-
     }
 
 
@@ -177,7 +176,7 @@ class MainActivity : AppCompatActivity() {
             bottomNagivationView.selectedItemId = R.id.item1
             bottomMenu = "home"
             supportFragmentManager.beginTransaction()
-                .replace(R.id.body_container, Fragment1::class.java, null)
+                .replace(R.id.body_container, FragmentMain1::class.java, null)
                 .setReorderingAllowed(true)
                 .addToBackStack("1")
                 .commit()
@@ -203,18 +202,50 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(frame.id, fragment).commit()
     }
 
-    fun onClick(view: View) {
-
-        when(view.getId())    {
-            R.id.eventBtn1 ->   {
-                Toast.makeText(this@MainActivity, "이동", Toast.LENGTH_SHORT).show()
-                val connectIntent = Intent(this, ConnectActivity::class.java)
-                startActivity(connectIntent)
+    fun changeFragment(index: Int)  {
+        when(index) {
+            1-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentConnectMain::class.java, null)
+                    .commit()
+            }
+            2-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentConnect1::class.java, null)
+                    .commit()
+            }
+            3-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentConnect2::class.java, null)
+                    .commit()
+            }
+            4-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentConnect3::class.java, null)
+                    .commit()
+            }
+            5-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentAttendCode::class.java, null)
+                    .commit()
             }
         }
     }
 
+    fun onClick(view: View) {
 
+        when(view.id)   {
+            R.id.qrBtn-> {
+                startActivity(Intent(applicationContext, ScannerActivity::class.java))
+            }
+        }
+
+    }
 }
 
 

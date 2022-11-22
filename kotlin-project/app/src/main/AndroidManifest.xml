@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Test10"
         tools:targetApi="31">
         <activity
-            android:name=".Fragment2"
+            android:name=".FragmentMain2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -71,7 +71,6 @@
         </activity>
         <activity android:name=".SpinnerActivity" />
         <activity android:name=".ConnectActivity" />
-        <activity android:name=".Fragment2Activity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

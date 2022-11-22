@@ -25,7 +25,8 @@
             android:src="@drawable/qr"
             android:layout_weight="1"
             android:scaleType="centerCrop"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:onClick="onClick"/>
 
         <Button
             android:id="@+id/codeBtn"
@@ -42,7 +43,6 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="OnClick"
         app:itemBackground="@color/white"
         app:itemTextColor="@drawable/bottom_icon_color"
         app:itemIconTint="@drawable/bottom_icon_color"

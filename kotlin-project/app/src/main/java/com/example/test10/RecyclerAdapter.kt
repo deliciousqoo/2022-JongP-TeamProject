@@ -1,22 +1,18 @@
 package com.example.test10
 
-import android.R
 import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.ItemViewBinding
 import com.example.test10.databinding.LoadingBinding
-import kotlinx.android.synthetic.main.item_view.view.*
 
 
-class RecyclerAdapter(private val onLoadMoreListener: Fragment1) :
+class RecyclerAdapter(private val onLoadMoreListener: FragmentMain1) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val VIEW_ITEM = 1
     private val VIEW_PROG = 0

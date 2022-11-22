@@ -89,7 +89,7 @@ class RecyclerAdapter(private val onLoadMoreListener: Fragment1) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ItemViewHolder) {
-            holder.tvItem.setText(itemList[position]?.getItem())
+            holder.tvItem.setText(itemList[position]?.item)
         }
     }
 

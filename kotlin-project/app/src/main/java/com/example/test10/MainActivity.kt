@@ -20,22 +20,8 @@ data class CompanyData(
     var img : Drawable,
     var tec: String,
     val name: String,
-){
-    private var item: String? = null
-
-    fun getItem(): String? {
-        return item
-    }
-
-    fun setItem(item: String?) {
-        this.item = item
-    }
-
-
-    fun Item(item: String?) {
-        this.item = item
-    }
-}
+    var item: String? = null
+)
 
 //행사안건데이터
 data class Agenda(

@@ -3,6 +3,7 @@ package com.example.test10
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -171,7 +172,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() { //뒤로가기 처리
 
         val count = supportFragmentManager.backStackEntryCount
-        if(!bottomMenu.equals("home")){
+        if(bottomMenu.equals("home")){
 
             bottomNagivationView.selectedItemId = R.id.item1
             bottomMenu = "home"
@@ -180,7 +181,17 @@ class MainActivity : AppCompatActivity() {
                 .setReorderingAllowed(true)
                 .addToBackStack("1")
                 .commit()
-        }
+        }/*
+        else if(bottomMenu.equals("menu")){
+            Log.d("test", "test")
+            bottomNagivationView.selectedItemId = R.id.item1
+            bottomMenu = "home"
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.body_container, FragmentMain1::class.java, null)
+                .setReorderingAllowed(true)
+                .addToBackStack("1")
+                .commit()
+        }*/
         else
         {
             if(main_drawer_layout.isDrawerOpen(GravityCompat.END)){//            Drawer page back
@@ -232,6 +243,12 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.body_container, FragmentAttendCode::class.java, null)
+                    .commit()
+            }
+            6-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentVoteCode::class.java, null)
                     .commit()
             }
         }

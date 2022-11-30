@@ -243,6 +243,9 @@ class MainActivity : AppCompatActivity() {
             R.id.qrBtn-> {
                 startActivity(Intent(applicationContext, ScannerActivity::class.java))
             }
+            R.id.createVote-> {
+                startActivity(Intent(this, CreateVoteActivity::class.java))
+            }
         }
 
     }

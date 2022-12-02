@@ -4,7 +4,7 @@ DROP TABLE vote CASCADE CONSTRAINT;
 DROP TABLE participate CASCADE CONSTRAINT;
 DROP TABLE event CASCADE CONSTRAINT;
 DROP TABLE attend CASCADE CONSTRAINT;
-DROP TABLE material CASCADE CONSTRAINT;
+--DROP TABLE material CASCADE CONSTRAINT;
 DROP TABLE progress CASCADE CONSTRAINT;
 
 create table member(
@@ -36,14 +36,14 @@ create table attend(
     primary key (SSN, EventNo)
 );
 
-create table material(
-    EventNo int not null,
-    MateNo int not null,
-    mFile varchar(200),
-    mDescription varchar(200),
-    foreign key (EventNo) references event(EventNo),
-    primary key (EventNo, MateNo)
-);
+-- create table material(
+--     EventNo int not null,
+--     MateNo int not null,
+--     mFile varchar(200),
+--     mDescription varchar(200),
+--     foreign key (EventNo) references event(EventNo),
+--     primary key (EventNo, MateNo)
+-- );
 
 create table progress(
     EventNo int not null,

@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
                     R.id.item1 -> {
                          supportFragmentManager.beginTransaction()
-                            .replace(R.id.body_container, FragmentMain1::class.java, null)
+                            .replace(R.id.body_container, FragmentMain2::class.java, null)
                             .commit()
                         bottomMenu = "home"
                         true
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                         //startActivity(Intent(applicationContext, Fragment2Activity::class.java))
                         //overridePendingTransition(0, 0)
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.body_container, FragmentMain2::class.java, null)
+                            .replace(R.id.body_container, FragmentMain1::class.java, null)
                             .commit()
                         bottomMenu = "menu"
                         true

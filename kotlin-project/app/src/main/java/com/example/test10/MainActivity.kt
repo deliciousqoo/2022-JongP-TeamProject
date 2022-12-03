@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
         // 애플리케이션 실행 후 첫 화면 설정
         supportFragmentManager.beginTransaction()
-            .replace(R.id.body_container, FragmentMain1::class.java, null)
+            .replace(R.id.body_container, FragmentMain2::class.java, null)
             .setReorderingAllowed(true)
             .addToBackStack(null)
             .commit()

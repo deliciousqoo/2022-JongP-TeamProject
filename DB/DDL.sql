@@ -1,8 +1,11 @@
--- DROP TABLE member CASCADE CONSTRAINT;
--- DROP TABLE event CASCADE CONSTRAINT;
--- DROP TABLE vote CASCADE CONSTRAINT;
--- DROP TABLE options CASCADE CONSTRAINT;
--- DROP TABLE participate CASCADE CONSTRAINT;
+DROP TABLE member CASCADE CONSTRAINT;
+DROP TABLE event CASCADE CONSTRAINT;
+DROP TABLE vote CASCADE CONSTRAINT;
+DROP TABLE participate CASCADE CONSTRAINT;
+DROP TABLE event CASCADE CONSTRAINT;
+DROP TABLE attend CASCADE CONSTRAINT;
+--DROP TABLE material CASCADE CONSTRAINT;
+DROP TABLE progress CASCADE CONSTRAINT;
 
 create table member(
     SSN char(5) not null,
@@ -12,8 +15,42 @@ create table member(
 );
 
 create table event(
-    eventNo int not null,
-    primary key(eventNo)
+    EventNo int not null,
+    EName varchar(50),
+    ELocation varchar(50),
+    EDate date,
+    EDescription varchar(200),
+    EStatus int not null,
+    AttendCode varchar(4),
+    AttendQR varchar(200),
+    HostSSN char(5),
+    foreign key (HostSSN) references member(ssn),
+    primary key (EventNo)
+);
+
+create table attend(
+    SSN char(5) not null,
+    EventNo int not null,
+    foreign key (SSN) references member(ssn),
+    foreign key (EventNo) references event(EventNo),
+    primary key (SSN, EventNo)
+);
+
+-- create table material(
+--     EventNo int not null,
+--     MateNo int not null,
+--     mFile varchar(200),
+--     mDescription varchar(200),
+--     foreign key (EventNo) references event(EventNo),
+--     primary key (EventNo, MateNo)
+-- );
+
+create table progress(
+    EventNo int not null,
+    ProgNo int not null,
+    pContent varchar(200),
+    foreign key (EventNo) references event(EventNo),
+    primary key (EventNo, ProgNo)
 );
 
 create table vote(
@@ -27,21 +64,15 @@ create table vote(
     primary key (EventNo, VoteNo)
 );
 
-create table options(
-    EventNo int not null,
-    VoteNo int not null,
-    optionNo int not null,
-    VoteOption varchar(50) not null,
-    foreign key (EventNo, voteno) references vote(eventno, voteno),
-    primary key (EventNo, VoteNo, OptionNo)
-);
-
 create table participate(
     SSN char(5) not null,
     EventNo int not null,
     VoteNo int not null,
     Answer int not null,
     foreign key (SSN) references member(ssn),
-    foreign key (EventNo, voteno, answer) references options(eventno, voteno, optionno),
-    primary key (ssn, EventNo, VoteNo, Answer)
+    foreign key (EventNo, voteno) references vote(eventno, voteno),
+    primary key (ssn, EventNo, VoteNo)
 );
+
+
+

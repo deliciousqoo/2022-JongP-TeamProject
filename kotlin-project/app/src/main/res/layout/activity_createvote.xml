@@ -17,33 +17,37 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:text="투표 제목"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/VoteTitle"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/VoteTitle"/>
+        tools:ignore="SpeakableTextPresentCheck"
+        android:inputType="text" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="투표 설명"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/explainVote"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/explainVote"/>
+        android:inputType="text"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="투표 항목"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -11,6 +11,7 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -261,7 +262,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(applicationContext, ScannerActivity::class.java))
             }
             R.id.createVote-> {
-                startActivity(Intent(this, CreateVoteActivity::class.java))
+                startActivity(Intent(applicationContext, CreateVoteActivity::class.java))
             }
         }
 

@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Test10"
         tools:targetApi="31">
         <activity
-            android:name=".FragmentMain2"
+            android:name=".FragmentMain1"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

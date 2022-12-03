@@ -15,7 +15,6 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.fragment_connect_2.*
 import kotlinx.android.synthetic.main.main.*
 
 data class CompanyData(
@@ -57,7 +56,6 @@ data class Agenda(
 @Suppress("UNREACHABLE_CODE")
 class MainActivity : AppCompatActivity() {
 
-
     private val frame: RelativeLayout by lazy { // activity_main의 화면 부분
         findViewById(R.id.body_container)
     }
@@ -65,13 +63,14 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.bottom_navigation)
     }
 
+    private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime : Long = 0
     lateinit var bottomMenu : String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main)
+        setContentView(R.layout.activity_main)
 
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -79,41 +78,34 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayShowTitleEnabled(false) //액션바 제목표시
 
-
         // 애플리케이션 실행 후 첫 화면 설정
         supportFragmentManager.beginTransaction()
             .replace(R.id.body_container, FragmentMain1::class.java, null)
-            .setReorderingAllowed(true)
-            .addToBackStack(null)
             .commit()
 
-        bottomMenu = "home"
         // 하단 네비게이션 바 클릭 이벤트 설정
         bottomNagivationView.run {
             setOnNavigationItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.item1 -> {
-                         supportFragmentManager.beginTransaction()
+                        supportFragmentManager.beginTransaction()
                             .replace(R.id.body_container, FragmentMain1::class.java, null)
                             .commit()
                         bottomMenu = "home"
                         true
                     }
                     R.id.item2 -> {
-                        //startActivity(Intent(applicationContext, Fragment2Activity::class.java))
-                        //overridePendingTransition(0, 0)
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.body_container, FragmentMain2::class.java, null)
                             .commit()
-                        bottomMenu = "menu"
+                        bottomMenu = "category"
                         true
                     }
                     R.id.item3 -> {
-
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.body_container, FragmentMain3::class.java, null)
                             .commit()
-                        bottomMenu = "item3"
+                        bottomMenu = "profile"
                         true
                     }
                     else -> false
@@ -172,26 +164,40 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() { //뒤로가기 처리
 
         val count = supportFragmentManager.backStackEntryCount
+        if(count == 0)  {
+            val tempTime = System.currentTimeMillis()
+            val intervalTime = tempTime - backPressedTime
+            if(!(0 > intervalTime || FINISH_INTERVAL_TIME < intervalTime))  {
+                finishAffinity()
+                System.runFinalization()
+                System.exit(0)
+            } else  {
+                backPressedTime = tempTime
+                Toast.makeText(this, "'뒤로' 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+                return
+            }
+        }
+        else    {
+            Log.d("태그", "현재 프래그먼트 카운트 : " + supportFragmentManager.backStackEntryCount)
+        }
+        /*
         if(bottomMenu.equals("home")){
-
-            bottomNagivationView.selectedItemId = R.id.item1
-            bottomMenu = "home"
+            //bottomNagivationView.selectedItemId = R.id.item1
+            supportFragmentManager.popBackStack()
+            Log.d("태그", "count: " + supportFragmentManager.backStackEntryCount)
             supportFragmentManager.beginTransaction()
                 .replace(R.id.body_container, FragmentMain1::class.java, null)
-                .setReorderingAllowed(true)
-                .addToBackStack("1")
                 .commit()
-        }/*
-        else if(bottomMenu.equals("menu")){
-            Log.d("test", "test")
-            bottomNagivationView.selectedItemId = R.id.item1
+        }
+        else if(bottomMenu.equals("category")){
+            //bottomNagivationView.selectedItemId = R.id.item1
             bottomMenu = "home"
+            supportFragmentManager.popBackStack()
+            Log.d("태그", "count: " + supportFragmentManager.backStackEntryCount)
             supportFragmentManager.beginTransaction()
                 .replace(R.id.body_container, FragmentMain1::class.java, null)
-                .setReorderingAllowed(true)
-                .addToBackStack("1")
                 .commit()
-        }*/
+        }
         else
         {
             if(main_drawer_layout.isDrawerOpen(GravityCompat.END)){//            Drawer page back
@@ -205,7 +211,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 backPressedTime = System.currentTimeMillis()
             }
-        }
+        }*/
     }
 
     // 화면 전환 구현 메소드
@@ -219,36 +225,48 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.body_container, FragmentConnectMain::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("connectMain")
                     .commit()
             }
             2-> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.body_container, FragmentConnect1::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("connect1")
                     .commit()
             }
             3-> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.body_container, FragmentConnect2::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("connect2")
                     .commit()
             }
             4-> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.body_container, FragmentConnect3::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("connect3")
                     .commit()
             }
             5-> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.body_container, FragmentAttendCode::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("attendCode")
                     .commit()
             }
             6-> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.body_container, FragmentVoteCode::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("voteCode")
                     .commit()
             }
         }

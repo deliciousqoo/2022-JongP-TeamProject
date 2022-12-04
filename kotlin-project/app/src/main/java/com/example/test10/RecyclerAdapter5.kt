@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.ItemView5Binding
 import com.example.test10.databinding.LoadingBinding
-/*
-class RecyclerAdapter5(private val onLoadMoreListener: ConnectActivity) :
+
+class RecyclerAdapter5(private val onLoadMoreListener: FragmentConnect1) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val VIEW_ITEM = 1
     private val VIEW_PROG = 0
@@ -113,4 +113,4 @@ class RecyclerAdapter5(private val onLoadMoreListener: ConnectActivity) :
         }
     }
 
- }*/
+ }

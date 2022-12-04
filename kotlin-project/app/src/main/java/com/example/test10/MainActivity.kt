@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.main.*
@@ -88,6 +89,7 @@ class MainActivity : AppCompatActivity() {
             setOnNavigationItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.item1 -> {
+                        clearBackStack()
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.body_container, FragmentMain1::class.java, null)
                             .commit()
@@ -95,14 +97,15 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.item2 -> {
+                        clearBackStack()
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.body_container, FragmentMain1::class.java, null)
+                            .replace(R.id.body_container, FragmentMain2::class.java, null)
                             .commit()
                         bottomMenu = "category"
                         true
                     }
                     R.id.item3 -> {
-
+                        clearBackStack()
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.body_container, FragmentMain3::class.java, null)
                             .commit()
@@ -271,12 +274,13 @@ class MainActivity : AppCompatActivity() {
             R.id.qrBtn-> {
                 startActivity(Intent(applicationContext, ScannerActivity::class.java))
             }
-
         }
-
     }
 
-
+    fun clearBackStack() {
+        val fragmentManager: FragmentManager = supportFragmentManager
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+    }
 }
 
 

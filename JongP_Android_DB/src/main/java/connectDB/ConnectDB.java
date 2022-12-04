@@ -6,17 +6,11 @@ import java.sql.SQLException;
 
 public class ConnectDB {
 	
-	private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	//private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	private static final String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
 	private static final String USER_UNIVERSITY ="jongP";
 	private static final String USER_PASSWD ="jongP123";
-	
-	/*
-	private static final String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
-	private static final String USER_UNIVERSITY = "dbproject";
-	private static final String USER_PASSWD = "db";
-	*/
-
-	
+		
 	private Connection conn;
 	private boolean connected;
 	
@@ -26,6 +20,7 @@ public class ConnectDB {
 		
 		try {
 			// Load a JDBC driver for Oracle DBMS
+			System.out.println("Connecting");
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			// Get a Connection object 
 			System.out.println("Success!");

@@ -43,6 +43,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="#8BC34A"
+                android:onClick="OnClick"
                 android:text="투표시작" />
 
             <Button

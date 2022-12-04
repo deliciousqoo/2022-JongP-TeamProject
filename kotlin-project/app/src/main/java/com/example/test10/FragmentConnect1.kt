@@ -7,16 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_view.view.*
 
 class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
 
     private var mAdapter: RecyclerAdapter5? = null
-    private var list: ArrayList<AgendaData>? = null
+    private var list: ArrayList<Agenda>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,21 +35,17 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
         Handler().postDelayed(Runnable {
             list!!.clear()
             mAdapter?.setProgressMore(false)
-
-            ///////이부분에을 자신의 프로젝트에 맞게 설정하면 됨
-            //다음 페이지? 내용을 불러오는 부분
-            val start: Int = mAdapter?.itemCount!!
-            val end = start + 15
-            for (i in start + 1..end) {
-                list!!.add(AgendaData(
-                    ContextCompat.getDrawable(requireContext(), R.drawable.mypage)!!,
-                    "" + i,
-                    "name $i"))
-            }
-            //////////////////////////////////////////////////
             mAdapter?.addItemMore(list)
-            mAdapter?.setMoreLoading(false)
         }, 1000)
+    }
+
+    private fun loadData() {
+        for (i in 1..10) {
+            list!!.add(
+                Agenda(i,"agenda $i")
+            )
+        }
+        mAdapter?.addAll(list)
     }
 
     override fun onCreateView(

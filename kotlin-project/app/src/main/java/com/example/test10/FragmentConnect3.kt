@@ -1,36 +1,3 @@
-
-/*
-class AttendanceActivity : AppCompatActivity() {
-    val binding by lazy { ActivityAttendanceBinding.inflate(layoutInflater) }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-
-        val data:MutableList<AttendanceCheck> = loadData()
-        var adapter = AttendanceAdapter()
-        adapter.listData = data
-        binding.attelistrecycler.adapter = adapter
-
-        binding.attelistrecycler.layoutManager = LinearLayoutManager(this)
-    }
-
-    fun loadData(): MutableList<AttendanceCheck> {
-        val data: MutableList<AttendanceCheck> = mutableListOf()
-        for (no in 1..100) {
-            val name = "홍길동"
-            val rank = "회원 등급"
-            var attendance = true
-            if (no % 3 == 1) {
-                attendance = false
-            }
-            var box = AttendanceCheck(name,rank,attendance)
-            data.add(box)
-        }
-        return data;
-    }
-}*/
-
 package com.example.test10
 
 import android.os.Bundle
@@ -41,9 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.test10.databinding.FragmentConnect3Binding
-import com.example.test10.databinding.FragmentConnectMainBinding
 import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
 
 class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
 
@@ -89,11 +54,9 @@ class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
             data.add(box)
         }
         // 위의 코드 대신 데이터 가져오는 함수 넣어야...
-        val retrofit = Retrofit.Builder().baseUrl("http://127.0.0.1:8080/")
-            .addConverterFactory(GsonConverterFactory.create()).build();
-        val service = retrofit.create(AtteRetrofitService::class.java);
+        val callGetAttendList = RetrofitClass.api.getItems(1)
 
-        service.getAttendList()?.enqueue(object  : Callback<AttendList>{
+        callGetAttendList.enqueue(object  : Callback<AttendList>{
             override fun onResponse(call: Call<AttendList>, response: Response<AttendList>) {
                 if (response.isSuccessful){
                     var result: AttendList? = response.body()

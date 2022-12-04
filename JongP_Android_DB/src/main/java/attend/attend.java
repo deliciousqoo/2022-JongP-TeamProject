@@ -22,12 +22,14 @@ public class attend {
 		String sql = "select *\n" + "from\n" + "member left outer join \n" + "(   select * \n" + "    from attend\n"
 				+ "    where attend.eventno = ?) attend1\n" + "on member.ssn = attend1.ssn";
 
+		
 		PreparedStatement pstmt = null;
 
 		try {
 			pstmt = Conn.prepareStatement(sql);
 			pstmt.setInt(1, EventNo);
 			ResultSet rs = pstmt.executeQuery();
+
 			while (rs.next()) {
 				JsonObject temp = new JsonObject();
 				temp.addProperty("SSN", rs.getString(1));
@@ -44,8 +46,7 @@ public class attend {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		json.add("item", jsonArray);
+		json.add("items", jsonArray);
 		return json.toString();
 	}
 }

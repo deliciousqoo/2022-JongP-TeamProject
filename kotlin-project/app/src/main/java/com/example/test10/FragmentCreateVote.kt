@@ -1,18 +1,15 @@
 package com.example.test10
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.test10.databinding.FragmentMain1Binding
-import android.view.ViewConfiguration
+import com.example.test10.databinding.FragmentCreateVoteBinding
 
-class FragmentMain1 : Fragment(),MainActivity.onBackPressedListener {
+class FragmentCreateVote : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mBinding: FragmentMain1Binding? = null
+    private var mBinding: FragmentCreateVoteBinding? = null
     private val binding get() = mBinding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,18 +23,7 @@ class FragmentMain1 : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        mBinding = FragmentMain1Binding.inflate(inflater, container, false)
-        val mActivity = activity as MainActivity
-
-        binding.btn1.setOnClickListener {
-            mActivity.changeFragment(1)
-        }
-
-        binding.btn1.setOnLongClickListener {
-            mActivity.changeFragment(7)
-            true
-        }
+        mBinding = FragmentCreateVoteBinding.inflate(inflater, container, false)
 
         return binding.root
     }

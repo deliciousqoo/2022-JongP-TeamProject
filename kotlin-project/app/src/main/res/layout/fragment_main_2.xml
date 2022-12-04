@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/body_container"
+    android:id="@+id/fragmentMain2"
     android:orientation="vertical">
 
 
@@ -22,17 +22,7 @@
         />
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@color/white"
-        app:itemTextColor="@drawable/bottom_icon_color"
-        app:itemIconTint="@drawable/bottom_icon_color"
-        app:labelVisibilityMode="labeled"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_bottom"
-        />
+
 
     <LinearLayout
         android:layout_width="match_parent"

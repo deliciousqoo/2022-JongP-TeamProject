@@ -30,11 +30,7 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
         // Inflate the layout for this fragment
         mBinding = FragmentManageVoteBinding.inflate(inflater, container, false)
         val mActivity = activity as MainActivity
-        binding.createVote.setOnClickListener {
-            var contentToast = Toast.makeText(requireContext(), "create vote", Toast.LENGTH_SHORT)
-            contentToast.show()
-            //startActivity(Intent(applicationContext, CreateVoteActivity::class.java))
-        }
+
 
         val data:MutableList<VoteData> = loadVote()
         var adapter = RecyclerVoteAdapter()

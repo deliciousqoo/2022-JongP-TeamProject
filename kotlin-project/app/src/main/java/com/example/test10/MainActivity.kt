@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
     private var backPressedTime : Long = 0
     lateinit var bottomMenu : String
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -102,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.item3 -> {
+
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.body_container, FragmentMain3::class.java, null)
                             .commit()
@@ -153,8 +153,6 @@ class MainActivity : AppCompatActivity() {
         }
         return false
 
-
-
     }
 
     interface onBackPressedListener {
@@ -178,40 +176,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         else    {
-            Log.d("태그", "현재 프래그먼트 카운트 : " + supportFragmentManager.backStackEntryCount)
-        }
-        /*
-        if(bottomMenu.equals("home")){
-            //bottomNagivationView.selectedItemId = R.id.item1
             supportFragmentManager.popBackStack()
-            Log.d("태그", "count: " + supportFragmentManager.backStackEntryCount)
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.body_container, FragmentMain1::class.java, null)
-                .commit()
+            //Log.d("태그", "현재 프래그먼트 카운트 : " + supportFragmentManager.backStackEntryCount)
         }
-        else if(bottomMenu.equals("category")){
-            //bottomNagivationView.selectedItemId = R.id.item1
-            bottomMenu = "home"
-            supportFragmentManager.popBackStack()
-            Log.d("태그", "count: " + supportFragmentManager.backStackEntryCount)
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.body_container, FragmentMain1::class.java, null)
-                .commit()
-        }
-        else
-        {
-            if(main_drawer_layout.isDrawerOpen(GravityCompat.END)){//            Drawer page back
-                main_drawer_layout.closeDrawers()
-            } else {//뒤로가기 2번 종료
-                if(backPressedTime +1500 > System.currentTimeMillis()){
-                    super.onBackPressed()
-                    finish()
-                } else{
-                    Toast.makeText(applicationContext,"'뒤로'가기 버튼을 한번더 누르면 종료됩니다.",Toast.LENGTH_LONG).show()
-                }
-                backPressedTime = System.currentTimeMillis()
-            }
-        }*/
+
     }
 
     // 화면 전환 구현 메소드
@@ -269,6 +237,30 @@ class MainActivity : AppCompatActivity() {
                     .addToBackStack("voteCode")
                     .commit()
             }
+            7-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentManageMain::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("manageMain")
+                    .commit()
+            }
+            8-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentManageVote::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("manageVote")
+                    .commit()
+            }
+            9-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentCreateVote::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("createVote")
+                    .commit()
+            }
         }
     }
 
@@ -278,12 +270,16 @@ class MainActivity : AppCompatActivity() {
             R.id.qrBtn-> {
                 startActivity(Intent(applicationContext, ScannerActivity::class.java))
             }
-            R.id.createVote-> {
-                startActivity(Intent(this, CreateVoteActivity::class.java))
+            R.id.startVote->    {
+                Log.d("태그", "ㅁㅇㄹ")
+                //changeFragment(9)
             }
+
         }
 
     }
+
+
 }
 
 

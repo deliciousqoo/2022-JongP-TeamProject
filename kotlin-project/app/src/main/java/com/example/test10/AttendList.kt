@@ -1,15 +1,12 @@
 package com.example.test10
 
-import com.google.gson.annotations.SerializedName
-
 data class AttendList (
-    @SerializedName("list")
-    val list: MutableList<AttendItem>
-    )
+    val items: List<Item>
+)
 
-data class AttendItem (
+data class Item(
     val SSN: String,
-    val name: String,
-    val rank: String,
-    val attendance: Boolean
-    )
+    val NAME: String,
+    val RANK: String,
+    val ATTEND: Boolean
+)

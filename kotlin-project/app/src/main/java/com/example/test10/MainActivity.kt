@@ -265,6 +265,14 @@ class MainActivity : AppCompatActivity() {
                     .addToBackStack("createVote")
                     .commit()
             }
+            10-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentVoting::class.java, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("Voting")
+                    .commit()
+            }
         }
     }
 

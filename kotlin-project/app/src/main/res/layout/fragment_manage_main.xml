@@ -13,7 +13,9 @@
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"
+        />
+
 
     <TextView
         android:layout_width="match_parent"
@@ -30,7 +32,7 @@
             android:layout_marginTop="30px"
             android:layout_marginLeft="20px"
             android:layout_marginRight="20px"
-            android:id="@+id/event_overview"
+            android:id="@+id/manage_overview"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:adjustViewBounds="true"
@@ -45,18 +47,18 @@
             android:layout_marginTop="5px"
             android:layout_marginLeft="20px"
             android:layout_marginRight="20px"
-            android:id="@+id/check_attendence"
+            android:id="@+id/manage_vote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left|center"
             android:drawableLeft="@android:drawable/checkbox_on_background"
             android:drawablePadding="20px"
-            android:text="참석 체크"/>
+            android:text="투표관리"/>
 
         <Button
             android:layout_marginLeft="20px"
             android:layout_marginRight="20px"
-            android:id="@+id/confirm_attendence"
+            android:id="@+id/manage_attendance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left|center"
@@ -67,28 +69,17 @@
         <Button
             android:layout_marginLeft="20px"
             android:layout_marginRight="20px"
-            android:id="@+id/vote"
+            android:id="@+id/manage_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left|center"
             android:drawablePadding="20px"
             android:drawableLeft="@android:drawable/ic_menu_edit"
-            android:text="안건 투표"/>
-
-        <Button
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:id="@+id/docs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left|center"
-            android:drawablePadding="20px"
-            android:drawableLeft="@android:drawable/ic_input_get"
             android:text="행사 자료"/>
 
 
-    </LinearLayout>
 
+    </LinearLayout>
 
 
 </FrameLayout>

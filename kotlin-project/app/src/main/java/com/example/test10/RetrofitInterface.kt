@@ -5,9 +5,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface RetrofitInterface {
-    @GET("JongP_Android_DB/atte.jsp")
+    @GET("atte.jsp")
     fun getItems(@Query("EventNo") EventNo:Int): Call<AttendList>
 
-    @GET("JongP_Android_DB/showEvent.jsp")
+    @GET("showEvent.jsp")
     fun getEventInfo(@Query("eventNo") eventNo:Int): Call<EventInfo>
 }

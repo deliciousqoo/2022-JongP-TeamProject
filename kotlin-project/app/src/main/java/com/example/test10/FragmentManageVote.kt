@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.test10.databinding.FragmentConnect3Binding
 import com.example.test10.databinding.FragmentMain2Binding
 import com.example.test10.databinding.FragmentManageVoteBinding
+import kotlinx.android.synthetic.main.fragment_manage_vote.*
 
 class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
 
@@ -30,11 +32,6 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
         // Inflate the layout for this fragment
         mBinding = FragmentManageVoteBinding.inflate(inflater, container, false)
         val mActivity = activity as MainActivity
-        binding.createVote.setOnClickListener {
-            var contentToast = Toast.makeText(requireContext(), "create vote", Toast.LENGTH_SHORT)
-            contentToast.show()
-            //startActivity(Intent(applicationContext, CreateVoteActivity::class.java))
-        }
 
         val data:MutableList<VoteData> = loadVote()
         var adapter = RecyclerVoteAdapter()

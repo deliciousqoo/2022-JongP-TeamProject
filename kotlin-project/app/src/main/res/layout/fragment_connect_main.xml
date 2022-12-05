@@ -89,17 +89,6 @@
 
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@color/white"
-        app:itemTextColor="@drawable/bottom_icon_color"
-        app:itemIconTint="@drawable/bottom_icon_color"
-        app:labelVisibilityMode="labeled"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_bottom2"
-        android:layout_gravity="bottom"
-        />
+
 
 </FrameLayout>

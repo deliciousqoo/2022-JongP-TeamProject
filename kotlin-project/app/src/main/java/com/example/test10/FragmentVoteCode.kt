@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.test10.databinding.FragmentAttendCodeBinding
-import com.example.test10.databinding.FragmentMain2Binding
 import com.example.test10.databinding.FragmentVoteCodeBinding
 
 class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
@@ -46,7 +44,9 @@ class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
         adapter!!.itemClick = object : RecyclerAdapter_FragmentVote.ItemClick{
             override fun onClick(view: View, position: Int) {
                 Toast.makeText(mActivity,"next_page",Toast.LENGTH_LONG).show()
+
                 mActivity.changeFragment(7)
+
             }
         }
         binding.recyclerView.adapter = adapter

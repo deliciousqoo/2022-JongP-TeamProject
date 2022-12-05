@@ -48,9 +48,6 @@ class FragmentConnectMain : Fragment(),MainActivity.onBackPressedListener {
         return binding.root
     }
     override fun onBackPressed() {
-//        requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
-        val mActivity = activity as MainActivity
-        mActivity.changeFragment(1)
-        Log.d("test", "test")
+        requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
     }
 }

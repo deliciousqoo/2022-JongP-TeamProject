@@ -9,17 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b302c3f4-d34c-4d81-9222-5d7df39d4c4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/CreateVoteActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentManageVote.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/RecyclerVoteAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/VoteData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_createvote.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_manage_vote.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/item_vote.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+    <list default="true" id="b302c3f4-d34c-4d81-9222-5d7df39d4c4e" name="Changes" comment="try to connect fragmentmanagevote and createvoteactivity">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentVoting.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentVoteCode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentVoteCode.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,6 +131,35 @@
       <option name="presentableId" value="Default" />
       <updated>1665759831565</updated>
     </task>
+    <task id="LOCAL-00001" summary="create vote and vote list recycler view">
+      <created>1669778330553</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669778330553</updated>
+    </task>
+    <task id="LOCAL-00002" summary="modify create vote and make voting page + modify navigation connect">
+      <created>1670057427710</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670057427711</updated>
+    </task>
+    <task id="LOCAL-00003" summary="modify navigation">
+      <created>1670058190230</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670058190231</updated>
+    </task>
+    <task id="LOCAL-00004" summary="try to connect fragmentmanagevote and createvoteactivity">
+      <created>1670060175655</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670060175655</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,5 +172,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create vote and vote list recycler view" />
+    <MESSAGE value="modify create vote and make voting page + modify navigation connect" />
+    <MESSAGE value="modify navigation" />
+    <MESSAGE value="try to connect fragmentmanagevote and createvoteactivity" />
+    <option name="LAST_COMMIT_MESSAGE" value="try to connect fragmentmanagevote and createvoteactivity" />
   </component>
 </project>

@@ -12,7 +12,7 @@ import com.example.test10.databinding.ItemViewBinding
 import com.example.test10.databinding.LoadingBinding
 
 
-class RecyclerAdapter(private val onLoadMoreListener: FragmentMain1) :
+class RecyclerAdapter(private val onLoadMoreListener: FragmentMain2) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val VIEW_ITEM = 1
     private val VIEW_PROG = 0

@@ -42,7 +42,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#8BC34A"
+                android:background="#8BC34A"
                 android:text="투표시작" />
 
             <Button
@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#8BC34A"
+                android:background="#9F9F9F"
                 android:text="투표종료" />
 
         </LinearLayout>

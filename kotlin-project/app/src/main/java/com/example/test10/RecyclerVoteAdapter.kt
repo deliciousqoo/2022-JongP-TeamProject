@@ -1,5 +1,6 @@
 package com.example.test10
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,11 @@ class RecyclerVoteAdapter : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>
 
         val item = items[position]
         val listener = View.OnClickListener { it ->
-            Toast.makeText(it.context, "Clicked -> title : ${item.title}, explain : ${item.explain}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                it.context,
+                "Clicked -> title : ${item.title}, explain : ${item.explain}",
+                Toast.LENGTH_SHORT
+            ).show()
         }
         holder.apply {
             bind(listener, item)
@@ -37,6 +42,15 @@ class RecyclerVoteAdapter : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>
             view.startVoteTime.text = item.starttime
             view.endVoteTime.text = item.endtime
             view.setOnClickListener(listener)
+            view.startVote.setOnClickListener {
+                view.startVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
+                view.endVote.setBackgroundColor(Color.parseColor("#8BC34A"))
+            }
+            view.endVote.setOnClickListener {
+                view.endVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
+                view.startVote.setBackgroundColor(Color.parseColor("#8BC34A"))
+            }
         }
+
     }
 }

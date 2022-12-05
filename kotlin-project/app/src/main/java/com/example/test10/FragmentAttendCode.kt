@@ -28,6 +28,7 @@ class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
         mBinding = FragmentAttendCodeBinding.inflate(inflater, container, false)
 
         val mActivity = activity as MainActivity
+
         binding.checkBtn.setOnClickListener {
             val tempPassword = binding.attendPassword.text.toString()
             if(tempPassword == "1234")  {
@@ -45,4 +46,6 @@ class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
     override fun onBackPressed() {
         requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
     }
+
+
 }

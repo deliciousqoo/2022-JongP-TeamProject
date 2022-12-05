@@ -1,16 +1,15 @@
 package com.example.test10
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.test10.databinding.FragmentVotingBinding
 
-class FragmentVoting : Fragment(),MainActivity.onBackPressedListener {
+class FragmentVotePlay : Fragment(),MainActivity.onBackPressedListener {
 
     private var mBinding: FragmentVotingBinding? = null
-
     private val binding get() = mBinding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {

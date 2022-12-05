@@ -1,6 +1,7 @@
 package com.example.test10
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,8 @@ class AttendanceAdapter: RecyclerView.Adapter<Holder>() {
     var listData = mutableListOf<AttendanceCheck>()
 
     internal interface OnItemClickListener {
-        fun onItemClick(v: View?, position: Int)
+        fun onItemClick(v: View?, position: Int) {
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -30,10 +32,22 @@ class AttendanceAdapter: RecyclerView.Adapter<Holder>() {
     }
 }
 class Holder(val binding: ItemRecyclerBinding):RecyclerView.ViewHolder(binding.root){
+    var box_temp = null
     init {
         binding.atteBtn.setOnClickListener {
-            Toast.makeText(binding.root.context,"${binding.atteName}님의 참석 여부를 바꿉니다.",Toast.LENGTH_LONG).show()
 
+            Toast.makeText(binding.root.context,"${binding.atteName.text}님의 참석 여부를 바꿉니다.",Toast.LENGTH_LONG).show()
+            if(binding.atteBtn.text == "참석"){
+                binding.atteBtn.text = "불참"
+                binding.atteBtn.setBackgroundColor(Color.parseColor("#F44336"))
+                binding.atteFrame.alpha = 0.5f
+            }
+            else{
+                binding.atteBtn.text = "참석"
+                binding.atteBtn.setBackgroundColor(Color.parseColor("#8BC34A"))
+                binding.atteFrame.alpha = 1.0f
+            }
+//            Toast.makeText(binding.root.context, "tests", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -50,5 +64,9 @@ class Holder(val binding: ItemRecyclerBinding):RecyclerView.ViewHolder(binding.r
             binding.atteBtn.setBackgroundColor(Color.parseColor("#F44336"))
             binding.atteFrame.alpha = 0.5f
         }
+    }
+    fun changeattd(box: AttendanceCheck){
+        box.attendance = !box.attendance
+        setAtteCheckBox(box)
     }
 }

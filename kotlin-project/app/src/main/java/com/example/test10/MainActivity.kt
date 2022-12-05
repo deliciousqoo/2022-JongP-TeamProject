@@ -271,6 +271,12 @@ class MainActivity : AppCompatActivity() {
                     .addToBackStack("Voting")
                     .commit()
             }
+            7-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentManageVote::class.java, null)
+                    .commit()
+            }
         }
     }
 

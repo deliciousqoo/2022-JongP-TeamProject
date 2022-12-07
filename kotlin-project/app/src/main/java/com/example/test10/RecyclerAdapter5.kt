@@ -15,7 +15,7 @@ class RecyclerAdapter5(private val onLoadMoreListener: FragmentConnect1) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val VIEW_ITEM = 1
     private val VIEW_PROG = 0
-    private val itemList: ArrayList<Agenda?>
+    private val itemList: ArrayList<Progress?>
     private var mLinearLayoutManager: LinearLayoutManager? = null
     var firstVisibleItem = 0
     var visibleItemCount = 0
@@ -60,21 +60,21 @@ class RecyclerAdapter5(private val onLoadMoreListener: FragmentConnect1) :
         }
     }
 
-    fun addAll(lst: List<Agenda?>?) {
+    fun addAll(lst: List<Progress?>?) {
         itemList.clear()
         itemList.addAll(lst!!)
         notifyDataSetChanged()
     }
 
-    fun addItemMore(lst: List<Agenda?>?) {
+    fun addItemMore(lst: List<Progress?>?) {
         itemList.addAll(lst!!)
         notifyItemRangeChanged(0, itemList.size)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ItemView5Holder) {
-            holder.agendaItem.setText(itemList[position]?.getNo()+".")
-            holder.agendaItem2.setText(itemList[position]?.getAgName())
+            holder.agendaItem.setText(itemList[position]?.PROGNO.toString()+".")
+            holder.agendaItem2.setText(itemList[position]?.PCONTENT)
         }
     }
 
@@ -99,9 +99,9 @@ class RecyclerAdapter5(private val onLoadMoreListener: FragmentConnect1) :
         var agendaItem2: TextView
 
         init {
-            agendaItem = binding.agendaNo
+            agendaItem = binding.progNo
             //findViewById(R.id.tvItem)
-            agendaItem2 = binding.agendaName
+            agendaItem2 = binding.pContent
         }
     }
 

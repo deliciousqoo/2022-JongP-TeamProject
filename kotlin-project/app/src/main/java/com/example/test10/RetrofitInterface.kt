@@ -12,4 +12,7 @@ interface RetrofitInterface {
     fun getCodeCheck(@Query("Ssn") Ssn:String,
                      @Query("Code") Code:String,
                      @Query("EventNo") EventNo:Int): Call<codeCheckClass>
+
+    @GET("showEvent.jsp")
+    fun getEventInfo(@Query("eventNo") eventNo:Int): Call<EventInfo>
 }

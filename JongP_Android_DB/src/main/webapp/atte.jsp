@@ -1,5 +1,6 @@
-<%@page import="java.awt.print.Printable"%>
+<%@ page import="javax.servlet.http.HttpServlet"%>
 <%@ page import="connectDB.*"%>
+<%@ page import="java.sql.*"%>
 <%@ page import="attend.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

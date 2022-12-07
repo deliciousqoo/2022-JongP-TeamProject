@@ -1,7 +1,6 @@
 package event;
 
 import java.sql.*;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 

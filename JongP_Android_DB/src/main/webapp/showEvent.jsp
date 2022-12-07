@@ -1,3 +1,5 @@
+<%@ page import="javax.servlet.http.HttpServlet"%>
+<%@ page import="java.sql.*"%>
 <%@ page import="connectDB.*"%>
 <%@ page import="event.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

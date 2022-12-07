@@ -1,8 +1,6 @@
 package connectDB;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ConnectDB {
 	
@@ -20,7 +18,6 @@ public class ConnectDB {
 		
 		try {
 			// Load a JDBC driver for Oracle DBMS
-			System.out.println("Connecting");
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			// Get a Connection object 
 			System.out.println("Success!");

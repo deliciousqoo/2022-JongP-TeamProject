@@ -43,9 +43,7 @@ class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
         var adapter = RecyclerAdapter_FragmentVote(data)
         adapter!!.itemClick = object : RecyclerAdapter_FragmentVote.ItemClick{
             override fun onClick(view: View, position: Int) {
-                Toast.makeText(mActivity,"next_page",Toast.LENGTH_LONG).show()
-
-                mActivity.changeFragment(7)
+                mActivity.changeFragment(10)
 
             }
         }

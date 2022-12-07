@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.test10.databinding.FragmentVotingBinding
 
-class FragmentVotePlay : Fragment(),MainActivity.onBackPressedListener {
+class FragmentVoting : Fragment(),MainActivity.onBackPressedListener {
 
     private var mBinding: FragmentVotingBinding? = null
     private val binding get() = mBinding!!

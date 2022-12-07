@@ -135,7 +135,11 @@
                 android:id="@+id/attelistrecycler"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.7" />
+                android:layout_weight="0.7"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_connect_3"/>
 
         </LinearLayout>
 

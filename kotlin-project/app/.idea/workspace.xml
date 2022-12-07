@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b302c3f4-d34c-4d81-9222-5d7df39d4c4e" name="Changes" comment="try to connect fragmentmanagevote and createvoteactivity">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentVoting.kt" afterDir="false" />
+    <list default="true" id="b302c3f4-d34c-4d81-9222-5d7df39d4c4e" name="Changes" comment="fragmentvoting">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentShareFile.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_share_file.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentVoteCode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentVoteCode.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentConnect3.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentConnect3.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentConnectMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentConnectMain.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670060175655</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fragmentvoting">
+      <created>1670202743390</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670202743390</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,6 +188,7 @@
     <MESSAGE value="modify create vote and make voting page + modify navigation connect" />
     <MESSAGE value="modify navigation" />
     <MESSAGE value="try to connect fragmentmanagevote and createvoteactivity" />
-    <option name="LAST_COMMIT_MESSAGE" value="try to connect fragmentmanagevote and createvoteactivity" />
+    <MESSAGE value="fragmentvoting" />
+    <option name="LAST_COMMIT_MESSAGE" value="fragmentvoting" />
   </component>
 </project>

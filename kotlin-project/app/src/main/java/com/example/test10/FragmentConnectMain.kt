@@ -39,8 +39,7 @@ class FragmentConnectMain : Fragment(),MainActivity.onBackPressedListener {
             mActivity.changeFragment(6)
         }
         binding.docs.setOnClickListener {
-            var contentToast = Toast.makeText(requireContext(), "docs", Toast.LENGTH_SHORT)
-            contentToast.show()
+            mActivity.changeFragment(13)
         }
 
         return binding.root

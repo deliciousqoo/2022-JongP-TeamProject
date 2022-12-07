@@ -6,8 +6,8 @@
     pageEncoding="UTF-8"%>
 <%	
 ConnectDB jdbc = new ConnectDB();
-int eventNo = 1;
+int EventNo = Integer.parseInt(request.getParameter("EventNo"));
 EventInfo e = new EventInfo(jdbc.getConn());
-String result = e.showEventInfo(eventNo);
+String result = e.showEventInfo(EventNo);
 %>
 <%= result%>

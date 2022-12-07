@@ -9,5 +9,5 @@ interface RetrofitInterface {
     fun getItems(@Query("EventNo") EventNo:Int): Call<AttendList>
 
     @GET("showEvent.jsp")
-    fun getEventInfo(@Query("eventNo") eventNo:Int): Call<EventInfo>
+    fun getEventInfo(@Query("EventNo") EventNo:Int): Call<EventInfo>
 }

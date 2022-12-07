@@ -49,7 +49,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="행사명"
                         android:textSize="28sp"
                         android:textStyle="bold" />
 
@@ -63,13 +62,20 @@
                         app:srcCompat="@drawable/grand"/>
 
                     <TextView
-                        android:id="@+id/explanation"
+                        android:id="@+id/text_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/text_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
-                        android:textSize="20sp"
-                        android:text="일시: 2022년 10월 06일\n장소: 대구광역시 북구 대학로 80" />
+                        android:textSize="20sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -97,12 +103,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="행사안건"
+                        android:text="행사순서"
                         android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/agendaList"
+                        android:id="@+id/progressList"
                         android:overScrollMode="never"
                         android:nestedScrollingEnabled="false"
                         android:layout_width="match_parent"

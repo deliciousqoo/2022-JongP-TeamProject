@@ -10,17 +10,18 @@ import android.view.ViewGroup
 import retrofit2.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_connect_1.*
 
 class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
 
     private var mAdapter: RecyclerAdapter5? = null
-    private var list: ArrayList<Agenda>? = null
+    private var list: ArrayList<Progress>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
-        onLoadMore()
+        //onLoadMore()
     }
 
     override fun onStart() {
@@ -41,29 +42,29 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
     }
 
     private fun loadData() {
-//        val retrofitService = RetrofitClass.api.getEventInfo(1)
-//        retrofitService.enqueue(object : Callback<EventInfo> {
-//            override fun onResponse(call: Call<EventInfo>, response: Response<EventInfo>) {
-//                if (response.isSuccessful) {
-//                    val body = response.body()
-//                    Log.d("YMC", "성공 "+body.toString())
-//                    body?.let {
-//                        setAdapter(body.PROGRESS)
-//                    }
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<EventInfo>, t: Throwable) {
-//                Log.d("YMC", "onFailure 에러 " + t.message.toString())
-//            }
-//        })
+        var EventNo = 1
+        val retrofitService = RetrofitClass.api.getEventInfo(EventNo)
+        retrofitService.enqueue(object : Callback<EventInfo> {
+            override fun onResponse(call: Call<EventInfo>, response: Response<EventInfo>) {
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    Log.d("YMC", "성공 "+body.toString())
+                    body?.let {
+                        //setAdapter(body.PROGRESS)
+                        list=body.PROGRESS
+                        mAdapter?.addAll(list)
+                        eventName.setText(body.NAME)
+                        text_date.setText("일시: "+body.DATE)
+                        text_location.setText("장소: "+body.LOCATION)
+                    }
+                }
+            }
 
-        for (i in 1..10) {
-            list!!.add(
-                Agenda(i,"agenda $i")
-            )
-        }
-        mAdapter?.addAll(list)
+            override fun onFailure(call: Call<EventInfo>, t: Throwable) {
+                Log.d("YMC", "onFailure 에러 " + t.message.toString())
+            }
+        })
+        //mAdapter?.addAll(list)
     }
 
     override fun onCreateView(
@@ -74,7 +75,7 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
         val view = inflater.inflate(R.layout.fragment_connect_1, container, false)
 
         list = ArrayList()
-        val mRecyclerView = view.findViewById<View>(R.id.agendaList) as RecyclerView
+        val mRecyclerView = view.findViewById<View>(R.id.progressList) as RecyclerView
         val mLayoutManager = LinearLayoutManager(requireContext())
         mRecyclerView.layoutManager = mLayoutManager
         mAdapter = RecyclerAdapter5(this)    //
@@ -88,23 +89,4 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
     override fun onBackPressed() {
         requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
     }
-
-    // 위의 코드 대신 데이터 가져오는 함수 넣어야...
-    /*val callGetEventInfo = RetrofitClass.api.getEventInfo(1)
-
-    callGetEventInfo.enqueue(object  : Callback<EventInfo> {
-        override fun onResponse(call: Call<EventInfo>, response: Response<EventInfo>) {
-            if (response.isSuccessful){
-                var result: EventInfo? = response.body()
-                Log.d("YMC","onResponse 성공: "+result.toString());
-            }else{
-                Log.d("YMC","onResponse 실패")
-            }
-        }
-
-        override fun onFailure(call: Call<AttendList>, t: Throwable) {
-            Log.d("YMC","onFailure 에러 "+t.message.toString());
-        }
-    })*/
-
 }

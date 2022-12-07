@@ -5,7 +5,7 @@ data class EventInfo (
     val LOCATION: String,
     val DATE: String,
     val DESCRIPTION: String,
-    val PROGRESS: List<Progress>
+    val PROGRESS: ArrayList<Progress>
 )
 
 data class Progress(

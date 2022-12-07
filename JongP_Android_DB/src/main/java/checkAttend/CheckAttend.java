@@ -30,6 +30,8 @@ public class CheckAttend {
 				json.addProperty("checkBoolean", false);
 			}
 			ps.close();
+			conn.commit();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

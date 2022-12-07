@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.ItemConnect3Binding
@@ -58,7 +59,7 @@ class AttendanceManagableAdapter(val items: ArrayList<Item>, val context: Contex
         }
 
         private fun requestChangeAttend(){
-            val retrofitService = RetrofitClass.api.getChangeStatus(ssn,attend,1)
+            val retrofitService = RetrofitClass.api.getChangeStatus(ssn,!attend,1)
             retrofitService.enqueue(object : Callback<checkBooleanClass>{
                 override fun onResponse(
                     call: Call<checkBooleanClass>,
@@ -84,9 +85,10 @@ class AttendanceManagableAdapter(val items: ArrayList<Item>, val context: Contex
                                     binding.atteFrame.alpha = 1.0f
                                     attend = true
                                 }
+
                             }else{
                                 //#출석 #상태_변환 #실패..
-                                Log.d("YMC", " #출석 #상태_변환 #실패..")
+                                Log.d("YMC", " #출석 #상태_변환 #실패.."+attend.toString())
                             }
                         }
                     }

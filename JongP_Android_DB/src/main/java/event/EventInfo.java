@@ -40,7 +40,8 @@ public class EventInfo {
 				progress.add(temp);
 			}
 			eventInfo.add("PROGRESS", progress);
-			
+			Conn.commit();
+
 			pstmt.close();
 			rs.close();
 		} catch (SQLException e) {

@@ -7,12 +7,9 @@
 <%	
 ConnectDB jdbc = new ConnectDB();
 ChangeAttend a = new ChangeAttend(jdbc.getConn());
-// Boolean checkBoolean = Boolean.parseBoolean(request.getParameter("checkBoolean"));
-// String SSN= request.getParameter("SSN");
-// int EventNo = Integer.parseInt(request.getParameter("EventNo"));
-String SSN = "D1017";
-int EventNo = 2;
-boolean checkBoolean = false;
+Boolean checkBoolean = Boolean.parseBoolean(request.getParameter("Attend"));
+String SSN= request.getParameter("Ssn");
+int EventNo = Integer.parseInt(request.getParameter("EventNo"));
 String result = a.manageAttend(SSN, EventNo, checkBoolean);
 %>
 <%= result%>

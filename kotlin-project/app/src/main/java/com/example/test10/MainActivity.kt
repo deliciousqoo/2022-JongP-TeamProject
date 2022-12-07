@@ -277,6 +277,12 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.body_container, FragmentManageVote::class.java, null)
                     .commit()
             }
+            12->    {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentManageAttend::class.java, null)
+                    .commit()
+            }
         }
     }
 

@@ -31,7 +31,9 @@ class FragmentManageMain : Fragment(),MainActivity.onBackPressedListener {
         binding.manageVote.setOnClickListener() {
             mActivity.changeFragment(8)
         }
-
+        binding.manageAttendance.setOnClickListener {
+            mActivity.changeFragment(12)
+        }
 
         return binding.root
     }

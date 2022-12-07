@@ -9,8 +9,7 @@ import com.example.test10.databinding.FragmentVotingBinding
 
 class FragmentVoting : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mBinding: FragmentVotingBinding? = null
-    private val binding get() = mBinding!!
+    private lateinit var binding: FragmentVotingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +22,7 @@ class FragmentVoting : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = FragmentVotingBinding.inflate(inflater, container, false)
+        binding = FragmentVotingBinding.inflate(inflater, container, false)
 
         return binding.root
     }

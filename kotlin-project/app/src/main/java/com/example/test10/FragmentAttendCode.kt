@@ -14,8 +14,7 @@ import retrofit2.Response
 
 class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mBinding: FragmentAttendCodeBinding? = null
-    private val binding get() = mBinding!!
+    private lateinit var binding: FragmentAttendCodeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +27,7 @@ class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = FragmentAttendCodeBinding.inflate(inflater, container, false)
+        binding = FragmentAttendCodeBinding.inflate(inflater, container, false)
 
         val mActivity = activity as MainActivity
 

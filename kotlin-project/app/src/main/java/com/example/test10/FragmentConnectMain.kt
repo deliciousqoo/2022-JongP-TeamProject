@@ -11,9 +11,7 @@ import com.example.test10.databinding.FragmentConnectMainBinding
 
 class FragmentConnectMain : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mBinding: FragmentConnectMainBinding? = null
-    private val binding get() = mBinding!!
-
+    private lateinit var binding: FragmentConnectMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +24,7 @@ class FragmentConnectMain : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = FragmentConnectMainBinding.inflate(inflater, container, false)
+        binding = FragmentConnectMainBinding.inflate(inflater, container, false)
         val mActivity = activity as MainActivity
         binding.eventOverview.setOnClickListener {
             mActivity.changeFragment(2)

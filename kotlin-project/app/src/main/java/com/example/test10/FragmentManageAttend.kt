@@ -15,7 +15,8 @@ import kotlinx.android.synthetic.main.fragment_vote_code.*
 import retrofit2.*
 
 class FragmentManageAttend : Fragment(),MainActivity.onBackPressedListener {
-    private lateinit var mBinding: FragmentManageAttendBinding
+
+    private lateinit var binding: FragmentManageAttendBinding
     private lateinit var recycler_view: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +30,10 @@ class FragmentManageAttend : Fragment(),MainActivity.onBackPressedListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = FragmentManageAttendBinding.inflate(inflater, container, false)
-        recycler_view = mBinding.attelistrecycler
+        binding = FragmentManageAttendBinding.inflate(inflater, container, false)
+        recycler_view = binding.attelistrecycler
         loadData()
-        return mBinding.root
+        return binding.root
     }
     override fun onBackPressed() {
         requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()

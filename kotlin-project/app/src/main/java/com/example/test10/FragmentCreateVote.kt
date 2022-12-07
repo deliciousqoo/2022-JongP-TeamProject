@@ -24,7 +24,11 @@ class FragmentCreateVote : Fragment(),MainActivity.onBackPressedListener {
     ): View? {
         // Inflate the layout for this fragment
         mBinding = FragmentCreateVoteBinding.inflate(inflater, container, false)
+        val mActivity = activity as MainActivity
 
+        binding.doneCreate.setOnClickListener {
+            mActivity.changeFragment(11)
+        }
         return binding.root
     }
 

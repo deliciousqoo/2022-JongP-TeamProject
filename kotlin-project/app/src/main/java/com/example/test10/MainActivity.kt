@@ -266,12 +266,12 @@ class MainActivity : AppCompatActivity() {
             10-> {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.body_container, FragmentVotePlay::class.java, null)
+                    .replace(R.id.body_container, FragmentVoting::class.java, null)
                     .setReorderingAllowed(true)
                     .addToBackStack("Voting")
                     .commit()
             }
-            7-> {
+            11-> {
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.body_container, FragmentManageVote::class.java, null)

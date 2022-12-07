@@ -22,11 +22,11 @@ public class AttendCode {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				if (rs.getString(1).equals(code)) {
-					json.addProperty("codeCheck", true);
+					json.addProperty("checkBoolean", true);
 					attend(SSN, EventNo);
 //					System.out.println("correct code");
 				} else {
-					json.addProperty("codeCheck", false);
+					json.addProperty("checkBoolean", false);
 //					System.out.println("wrong code");
 				}
 			}

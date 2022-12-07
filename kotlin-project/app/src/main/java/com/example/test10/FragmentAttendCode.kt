@@ -56,6 +56,7 @@ class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
         val mActivity = activity as MainActivity
         Toast.makeText(requireContext(), "출석되었습니다", Toast.LENGTH_LONG).show()
         mActivity.changeFragment(1)
+        //이동하고 나서도 입력 키보드가 올라와있는데 내려주실 수 있나요?
     }
 
     fun attendFail(){

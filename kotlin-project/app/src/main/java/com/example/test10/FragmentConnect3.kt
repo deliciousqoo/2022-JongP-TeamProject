@@ -1,7 +1,6 @@
 package com.example.test10
 
 import android.os.Bundle
-import android.telecom.Call
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,11 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.FragmentConnect3Binding
-import com.google.android.gms.common.api.Response
-import kotlinx.android.synthetic.main.fragment_connect_1.*
-import kotlinx.android.synthetic.main.fragment_vote_code.*
 import retrofit2.*
-import javax.security.auth.callback.Callback
 
 class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
 
@@ -48,7 +43,7 @@ class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
     // 리사이클 뷰에 들어갈 데이터 쓰기
     private fun loadData() {
         val retrofitService = RetrofitClass.api.getItems(1)
-        retrofitService.enqueue( addobject : Callback<AttendList> {
+        retrofitService.enqueue( object : Callback<AttendList> {
             override fun onResponse(call: Call<AttendList>, response: Response<AttendList>) {
                 if (response.isSuccessful) {
                     val body = response.body()

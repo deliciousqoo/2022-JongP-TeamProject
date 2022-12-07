@@ -1,5 +1,5 @@
 package com.example.test10
 
-data class codeCheckClass (
+data class checkBooleanClass (
     val checkBoolean : Boolean
 )

@@ -64,10 +64,10 @@ class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
 
     private fun checkCode(InputedCode:String) {
         val retrofitService = RetrofitClass.api.getCodeCheck("D1017",InputedCode,1)
-        retrofitService.enqueue( object : Callback<codeCheckClass>{
+        retrofitService.enqueue( object : Callback<checkBooleanClass>{
             override fun onResponse(
-                call: Call<codeCheckClass>,
-                response: Response<codeCheckClass>
+                call: Call<checkBooleanClass>,
+                response: Response<checkBooleanClass>
             ) {
                 if (response.isSuccessful) {
                     val body = response.body()
@@ -84,7 +84,7 @@ class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
                 }
             }
 
-            override fun onFailure(call: Call<codeCheckClass>, t: Throwable) {
+            override fun onFailure(call: Call<checkBooleanClass>, t: Throwable) {
                 Log.d("YMC", "onFailure 에러 " + t.message.toString())
             }
         })

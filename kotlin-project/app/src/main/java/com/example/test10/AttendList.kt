@@ -10,3 +10,4 @@ data class Item(
     val RANK: String,
     val ATTEND: Boolean
 )
+

@@ -41,6 +41,23 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
     }
 
     private fun loadData() {
+//        val retrofitService = RetrofitClass.api.getEventInfo(1)
+//        retrofitService.enqueue(object : Callback<EventInfo> {
+//            override fun onResponse(call: Call<EventInfo>, response: Response<EventInfo>) {
+//                if (response.isSuccessful) {
+//                    val body = response.body()
+//                    Log.d("YMC", "성공 "+body.toString())
+//                    body?.let {
+//                        setAdapter(body.PROGRESS)
+//                    }
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<EventInfo>, t: Throwable) {
+//                Log.d("YMC", "onFailure 에러 " + t.message.toString())
+//            }
+//        })
+
         for (i in 1..10) {
             list!!.add(
                 Agenda(i,"agenda $i")
@@ -89,4 +106,5 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
             Log.d("YMC","onFailure 에러 "+t.message.toString());
         }
     })*/
+
 }

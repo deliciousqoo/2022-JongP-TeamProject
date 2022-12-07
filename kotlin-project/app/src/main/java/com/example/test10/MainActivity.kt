@@ -3,7 +3,6 @@ package com.example.test10
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -11,7 +10,6 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -268,9 +266,15 @@ class MainActivity : AppCompatActivity() {
             10-> {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.body_container, FragmentVoting::class.java, null)
+                    .replace(R.id.body_container, FragmentVotePlay::class.java, null)
                     .setReorderingAllowed(true)
                     .addToBackStack("Voting")
+                    .commit()
+            }
+            7-> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentManageVote::class.java, null)
                     .commit()
             }
         }
@@ -281,6 +285,9 @@ class MainActivity : AppCompatActivity() {
         when(view.id)   {
             R.id.qrBtn-> {
                 startActivity(Intent(applicationContext, ScannerActivity::class.java))
+            }
+            R.id.createVote->   {
+                changeFragment(9)
             }
         }
     }

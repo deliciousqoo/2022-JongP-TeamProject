@@ -9,14 +9,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b302c3f4-d34c-4d81-9222-5d7df39d4c4e" name="Changes" comment="fragmentvoting">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentShareFile.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_share_file.xml" afterDir="false" />
+    <list default="true" id="b302c3f4-d34c-4d81-9222-5d7df39d4c4e" name="Changes" comment="FragmentShareFile / implement share file">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentConnect3.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentConnect3.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentConnectMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentConnectMain.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentManageMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentManageMain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentShareFile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test10/FragmentShareFile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_create_vote.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_create_vote.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_share_file.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_share_file.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +44,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2G8ARKRSpwFcnR2FCfw1CBEit53" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -189,6 +191,7 @@
     <MESSAGE value="modify navigation" />
     <MESSAGE value="try to connect fragmentmanagevote and createvoteactivity" />
     <MESSAGE value="fragmentvoting" />
-    <option name="LAST_COMMIT_MESSAGE" value="fragmentvoting" />
+    <MESSAGE value="FragmentShareFile / implement share file" />
+    <option name="LAST_COMMIT_MESSAGE" value="FragmentShareFile / implement share file" />
   </component>
 </project>

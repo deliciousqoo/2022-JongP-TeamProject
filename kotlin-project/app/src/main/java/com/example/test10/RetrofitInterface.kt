@@ -8,4 +8,6 @@ interface RetrofitInterface {
     @GET("atte.jsp")
     fun getItems(@Query("EventNo") EventNo:Int): Call<AttendList>
 
+    @GET("showEvent.jsp")
+    fun getEventInfo(@Query("eventNo") eventNo:Int): Call<EventInfo>
 }

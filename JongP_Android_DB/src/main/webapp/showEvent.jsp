@@ -1,13 +1,13 @@
 <%@ page import="javax.servlet.http.HttpServlet"%>
-<%@ page import="connectDB.*"%>
 <%@ page import="java.sql.*"%>
-<%@ page import="attend.*" %>
+<%@ page import="connectDB.*"%>
+<%@ page import="event.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%	
 ConnectDB jdbc = new ConnectDB();
-int EventNo = 1;
-attend a = new attend(jdbc.getConn());
-String result = a.getAttend(EventNo);
+int eventNo = 1;
+EventInfo e = new EventInfo(jdbc.getConn());
+String result = e.showEventInfo(eventNo);
 %>
 <%= result%>

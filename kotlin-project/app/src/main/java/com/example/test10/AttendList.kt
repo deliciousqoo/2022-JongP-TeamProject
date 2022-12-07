@@ -1,7 +1,7 @@
 package com.example.test10
 
 data class AttendList (
-    val items: List<Item>
+    val items: ArrayList<Item>
 )
 
 data class Item(

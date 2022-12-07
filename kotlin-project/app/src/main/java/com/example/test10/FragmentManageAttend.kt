@@ -8,14 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.test10.databinding.FragmentConnect3Binding
-import kotlinx.android.synthetic.main.fragment_connect_1.*
-import kotlinx.android.synthetic.main.fragment_vote_code.*
+import com.example.test10.databinding.FragmentManageAttendBinding
 import retrofit2.*
 
-class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
+class FragmentManageAttend : Fragment(),MainActivity.onBackPressedListener {
 
-    private lateinit var binding: FragmentConnect3Binding
+    private lateinit var binding: FragmentManageAttendBinding
     private lateinit var recycler_view: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +27,7 @@ class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentConnect3Binding.inflate(inflater, container, false)
+        binding = FragmentManageAttendBinding.inflate(inflater, container, false)
         recycler_view = binding.attelistrecycler
         loadData()
         return binding.root
@@ -38,7 +36,7 @@ class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
         requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
     }
     private fun setAdapter(items : ArrayList<Item>){
-        var adapter = AttendanceAdapter(items, this.context)
+        var adapter = AttendanceManagableAdapter(items, this.context)
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this.context)
     }

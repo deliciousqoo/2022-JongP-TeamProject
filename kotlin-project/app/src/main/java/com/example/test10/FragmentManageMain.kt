@@ -12,8 +12,7 @@ import com.example.test10.databinding.FragmentManageMainBinding
 
 class FragmentManageMain : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mBinding: FragmentManageMainBinding? = null
-    private val binding get() = mBinding!!
+    private lateinit var binding: FragmentManageMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,15 +25,14 @@ class FragmentManageMain : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = FragmentManageMainBinding.inflate(inflater, container, false)
+        binding = FragmentManageMainBinding.inflate(inflater, container, false)
         val mActivity = activity as MainActivity
         binding.manageVote.setOnClickListener() {
             mActivity.changeFragment(8)
         }
-        /*
-        binding.codeBtn.setOnClickListener  {
-            mActivity.changeFragment(5)
-        }*/
+        binding.manageAttendance.setOnClickListener {
+            mActivity.changeFragment(12)
+        }
 
         return binding.root
     }

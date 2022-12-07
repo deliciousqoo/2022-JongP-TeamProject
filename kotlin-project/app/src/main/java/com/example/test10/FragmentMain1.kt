@@ -16,8 +16,7 @@ import android.widget.Toast
 
 class FragmentMain1 : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mBinding: FragmentMain1Binding? = null
-    private val binding get() = mBinding!!
+    private lateinit var binding: FragmentMain1Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +30,7 @@ class FragmentMain1 : Fragment(),MainActivity.onBackPressedListener {
     ): View? {
         // Inflate the layout for this fragment
 
-        mBinding = FragmentMain1Binding.inflate(inflater, container, false)
+        binding = FragmentMain1Binding.inflate(inflater, container, false)
         val mActivity = activity as MainActivity
 
         binding.btn1.setOnClickListener {

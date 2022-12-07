@@ -16,8 +16,7 @@ import kotlinx.android.synthetic.main.fragment_manage_vote.*
 
 class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mBinding: FragmentManageVoteBinding? = null
-    private val binding get() = mBinding!!
+    private lateinit var binding: FragmentManageVoteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +29,7 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = FragmentManageVoteBinding.inflate(inflater, container, false)
+        binding = FragmentManageVoteBinding.inflate(inflater, container, false)
         val mActivity = activity as MainActivity
 
         val data:MutableList<VoteData> = loadVote()

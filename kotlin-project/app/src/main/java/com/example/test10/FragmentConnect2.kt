@@ -9,8 +9,7 @@ import com.example.test10.databinding.FragmentConnect2Binding
 
 class FragmentConnect2 : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mBinding: FragmentConnect2Binding? = null
-    private val binding get() = mBinding!!
+    private lateinit var binding: FragmentConnect2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +22,7 @@ class FragmentConnect2 : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = FragmentConnect2Binding.inflate(inflater, container, false)
+        binding = FragmentConnect2Binding.inflate(inflater, container, false)
         val mActivity = activity as MainActivity
         binding.codeBtn.setOnClickListener  {
             mActivity.changeFragment(5)

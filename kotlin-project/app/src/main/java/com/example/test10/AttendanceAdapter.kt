@@ -30,12 +30,6 @@ class AttendanceAdapter(val items: ArrayList<Item>, val context: Context?): Recy
     }
 
     class ViewHolder(val binding: ItemConnect3Binding):RecyclerView.ViewHolder(binding.root){
-        init {
-            binding.atteBtn.setOnClickListener {
-                Toast.makeText(binding.root.context,"${binding.atteName}님의 참석 여부를 바꿉니다.",Toast.LENGTH_LONG).show()
-
-            }
-        }
         fun bind(item: Item, context: Context? ){
             binding.atteName.text = "${item.NAME}"
             binding.atteRank.text = "${item.RANK}"

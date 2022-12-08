@@ -1,5 +1,6 @@
 package com.example.test10
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.ItemViewVoteBinding
 
-class RecyclerAdapter_FragmentVote(val datas: ArrayList<VoteContents>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class VoteAdapter(val datas: ArrayList<VoteItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class Frag2ViewHolder3(val binding: ItemViewVoteBinding): RecyclerView.ViewHolder(binding.root), MainActivity.onBackPressedListener {
         override fun onBackPressed() {
             Log.d("Holder", "Holder")
@@ -23,8 +24,9 @@ class RecyclerAdapter_FragmentVote(val datas: ArrayList<VoteContents>): Recycler
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         Frag2ViewHolder3(ItemViewVoteBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is RecyclerAdapter_FragmentVote.Frag2ViewHolder3) {
+        if (holder is VoteAdapter.Frag2ViewHolder3) {
             val binding = holder.binding
 
             binding.VoteTitle.text = "안건 ${position + 1} : " + datas[position].title

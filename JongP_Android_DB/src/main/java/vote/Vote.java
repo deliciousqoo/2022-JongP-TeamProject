@@ -26,9 +26,9 @@ public class Vote {
 			
 			while (rs.next()) {
 				JsonObject VoteInfo = new JsonObject();
-				//VoteInfo.addProperty("VOTENO", rs.getInt(2));
+				VoteInfo.addProperty("voteno", rs.getInt(2));
 				VoteInfo.addProperty("title", rs.getString(3));
-				//VoteInfo.addProperty("CONTENT", rs.getString(4));
+				VoteInfo.addProperty("explain", rs.getString(4));
 				
 				int status = 0;
 				if(rs.getDate(5) != null) {

@@ -40,7 +40,7 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
 //        binding.votelist.adapter = adapter
 //        binding.votelist.layoutManager = LinearLayoutManager(requireContext())
         recycler_view = binding.votelist
-
+        loadData()
         return binding.root
     }
 
@@ -49,12 +49,6 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
     }
     private fun setAdapter(items : ArrayList<VoteItem>){
         var adapter = RecyclerVoteAdapter(items)
-//        adapter!!.itemClick = object : VoteAdapter.ItemClick{
-//            override fun onClick(view: View, position: Int) {
-//                clientDataClass.currentAgenda = items[position].voteno
-//                mActivity.changeFragment(10)
-//            }
-//        }
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this.context)
     }

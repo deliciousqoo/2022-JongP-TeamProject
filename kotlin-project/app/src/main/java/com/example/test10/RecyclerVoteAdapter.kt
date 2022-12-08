@@ -34,11 +34,11 @@ class RecyclerVoteAdapter(val items: ArrayList<VoteItem>) : RecyclerView.Adapter
     // 각 항목에 필요한 기능을 구현
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         private var view: View = v
-        fun bind(listener: View.OnClickListener, item: VoteData) {
+        fun bind(listener: View.OnClickListener, item: VoteItem) {
             view.voteTitle.text = item.title
             view.voteExplain.text = item.explain
-            view.startVoteTime.text = item.starttime
-            view.endVoteTime.text = item.endtime
+            //view.startVoteTime.text = item.starttime
+            //view.endVoteTime.text = item.endtime
             view.setOnClickListener(listener)
             view.startVote.setOnClickListener {
                 view.startVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))

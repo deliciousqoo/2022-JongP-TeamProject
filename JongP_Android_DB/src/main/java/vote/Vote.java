@@ -88,4 +88,57 @@ public class Vote {
 
 		return VoteInfo.toString();
 	}
+	
+	public String participateVote(String SSN, int EventNo, int VoteNo, int Answer) {
+		JsonObject json = new JsonObject();
+		String sql = "";
+		PreparedStatement ps = null;
+
+		try {
+			sql = "select * from participate where ssn=? and eventno=? and voteno=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, SSN);
+			ps.setInt(2, EventNo);
+			ps.setInt(3, VoteNo);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				sql="update participate set answer=? where ssn=? and eventno=? and voteno=?";
+				ps = conn.prepareStatement(sql);
+				ps.setString(2, SSN);
+				ps.setInt(3, EventNo);
+				ps.setInt(4, VoteNo);
+				ps.setInt(1, Answer);
+				
+				int res = ps.executeUpdate();
+				if (res == 1) {
+					conn.commit();
+					json.addProperty("checkBoolean", true);
+				}else {
+					json.addProperty("checkBoolean", false);
+				}
+			}else {
+				sql="insert into participate values (?, ?, ?, ?)";
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, SSN);
+				ps.setInt(2, EventNo);
+				ps.setInt(3, VoteNo);
+				ps.setInt(4, Answer);
+				
+				int res = ps.executeUpdate();
+				if (res == 1) {
+					conn.commit();
+					json.addProperty("checkBoolean", true);
+				}else {
+					json.addProperty("checkBoolean", false);
+				}
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return json.toString();
+	}
+	
 }

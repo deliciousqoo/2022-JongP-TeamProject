@@ -6,11 +6,13 @@
     pageEncoding="UTF-8"%>
 <%	
 ConnectDB jdbc = new ConnectDB();
+//String Ssn = request.getParameter("Ssn");
 //int EventNo = Integer.parseInt(request.getParameter("EventNo"));
 //int VoteNo = Integer.parseInt(request.getParameter("VoteNo"));
-int EventNo = 3;
+String Ssn = "D1017";
+int EventNo = 1;
 int VoteNo = 1;
 Vote v = new Vote(jdbc.getConn());
-String result = v.getVoteInfo(EventNo, VoteNo);
+String result = v.getVoteInfo(Ssn, EventNo, VoteNo);
 %>
 <%= result%>

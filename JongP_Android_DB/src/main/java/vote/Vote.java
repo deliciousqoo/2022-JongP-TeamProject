@@ -26,9 +26,9 @@ public class Vote {
 			
 			while (rs.next()) {
 				JsonObject VoteInfo = new JsonObject();
-				VoteInfo.addProperty("VOTENO", rs.getInt(2));
-				VoteInfo.addProperty("AGENDA", rs.getString(3));
-				VoteInfo.addProperty("CONTENT", rs.getString(4));
+				//VoteInfo.addProperty("VOTENO", rs.getInt(2));
+				VoteInfo.addProperty("title", rs.getString(3));
+				//VoteInfo.addProperty("CONTENT", rs.getString(4));
 				
 				int status = 0;
 				if(rs.getDate(5) != null) {
@@ -39,7 +39,7 @@ public class Vote {
 					//VoteInfo.addProperty("FINISHTIME", rs.getDate(6).toString());
 					status = 2;
 				}
-				VoteInfo.addProperty("STATUS", status);
+				VoteInfo.addProperty("status", status);
 				VoteList.add(VoteInfo);
 			}
 			

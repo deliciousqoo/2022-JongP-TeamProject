@@ -30,7 +30,17 @@ class VoteAdapter(val datas: ArrayList<VoteItem>): RecyclerView.Adapter<Recycler
             val binding = holder.binding
 
             binding.VoteTitle.text = "안건 ${position + 1} : " + datas[position].title
-            binding.content.text = datas[position].writer + "| " + datas[position].status
+            when(datas[position].status){
+                0->{
+                    binding.content.text = "예정된 투표"
+                }
+                1->{
+                    binding.content.text = "진행중인 투표"
+                }
+                2->{
+                    binding.content.text = "종료된 투표"
+                }
+            }
 
             if(itemClick != null) {
                 binding.root.setOnClickListener(View.OnClickListener {

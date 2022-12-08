@@ -17,7 +17,9 @@ class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
 
     private lateinit var binding: FragmentVoteCodeBinding
     private lateinit var recycler_view: RecyclerView
-    val mActivity = activity as MainActivity
+    val mActivity by lazy {
+        requireActivity() as MainActivity
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

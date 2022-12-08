@@ -6,7 +6,6 @@ data class VoteList (
 
 data class VoteItem (
     var title: String,
-    var writer: String,
-    var status: String
+    var status: Int
     )
 

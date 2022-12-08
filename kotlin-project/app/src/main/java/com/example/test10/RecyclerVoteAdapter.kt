@@ -8,9 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_vote.view.*
 
-class RecyclerVoteAdapter : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>() {
-    var items = mutableListOf<VoteData>()
-    override fun getItemCount(): Int = items.size
+class RecyclerVoteAdapter(val items: ArrayList<VoteItem>) : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerVoteAdapter.ViewHolder, position: Int) {
 
@@ -52,5 +50,9 @@ class RecyclerVoteAdapter : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>
             }
         }
 
+    }
+
+    override fun getItemCount(): Int {
+        return items.count()
     }
 }

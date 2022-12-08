@@ -52,25 +52,9 @@
                     android:layout_marginHorizontal="10dp"
                     android:layout_weight="1"
                     android:gravity="center|left"
-                    android:text="@string/attendee_list"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:text="@string/attendee_manage_list"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="bold" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_weight="1.5" />
-
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center|right"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_weight="0.5"
-                    android:background="@android:color/transparent"
-                    app:srcCompat="@drawable/car_ui_icon_search" />
 
             </LinearLayout>
 
@@ -103,7 +87,7 @@
 
                 <TextView
                     android:id="@+id/textView7"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"

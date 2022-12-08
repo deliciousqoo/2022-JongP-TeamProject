@@ -25,4 +25,7 @@ interface RetrofitInterface {
     fun getCheckStatus(@Query("Ssn") Ssn:String,
                         @Query("EventNo") EventNo:Int): Call<checkBooleanClass>
 
+    @GET("JongP_Android_DB/getVoteInfo.jsp")
+    fun getVoteInfo(@Query("EventNo") EventNo: Int,
+                       @Query("VoteNo") VoteNo:Int): Call<VoteInfo>
 }

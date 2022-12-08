@@ -134,6 +134,7 @@ public class Vote {
 				}
 			}
 			ps.close();
+			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -141,4 +142,66 @@ public class Vote {
 		return json.toString();
 	}
 	
+	public String updateTime(int EventNo, int VoteNo, boolean isStart) {
+		JsonObject json = new JsonObject();
+		String sql = "";
+		PreparedStatement ps = null;
+		java.sql.Date Time = new java.sql.Date(System.currentTimeMillis());
+
+		try {
+			sql = "select * from vote where eventno=? and voteno=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, EventNo);
+			ps.setInt(2, VoteNo);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				if(isStart) {	// set start time
+					if(rs.getDate(5) != null) {	// already has start time
+						json.addProperty("checkBoolean", false);
+					}else {
+						sql="update vote set starttime=? where eventno=? and voteno=?";
+						ps = conn.prepareStatement(sql);
+						ps.setDate(1, Time);
+						ps.setInt(2, EventNo);
+						ps.setInt(3, VoteNo);
+						
+						int res = ps.executeUpdate();
+						if (res == 1) {
+							conn.commit();
+							json.addProperty("checkBoolean", true);
+						}else {
+							json.addProperty("checkBoolean", false);
+						}
+					}
+				}else {		// set finish time
+					if(rs.getDate(6) != null) {	// already has start time
+						json.addProperty("checkBoolean", false);
+					}else {
+						sql="update vote set finishtime=? where eventno=? and voteno=?";
+						ps = conn.prepareStatement(sql);
+						ps.setDate(1, Time);
+						ps.setInt(2, EventNo);
+						ps.setInt(3, VoteNo);
+						
+						int res = ps.executeUpdate();
+						if (res == 1) {
+							conn.commit();
+							json.addProperty("checkBoolean", true);
+						}else {
+							json.addProperty("checkBoolean", false);
+						}
+					}
+				}
+			}else {
+				json.addProperty("checkBoolean", false);
+			}
+			ps.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return json.toString();
+	}
 }

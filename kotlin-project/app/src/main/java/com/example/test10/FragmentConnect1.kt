@@ -42,8 +42,7 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
     }
 
     private fun loadData() {
-        var eventNo = 5
-        val retrofitService = RetrofitClass.api.getEventInfo(eventNo)
+        val retrofitService = RetrofitClass.api.getEventInfo(clientDataClass.currentEvent)
         retrofitService.enqueue(object : Callback<EventInfo> {
             override fun onResponse(call: Call<EventInfo>, response: Response<EventInfo>) {
                 if (response.isSuccessful) {

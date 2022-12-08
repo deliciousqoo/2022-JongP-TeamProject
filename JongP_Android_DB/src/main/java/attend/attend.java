@@ -38,6 +38,7 @@ public class attend {
 				}
 				jsonArray.add(temp);
 			}
+			Conn.commit();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

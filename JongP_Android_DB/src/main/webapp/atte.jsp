@@ -7,7 +7,6 @@
 <%	
 ConnectDB jdbc = new ConnectDB();
 Object EventString = request.getParameter("EventNo");
-//int EventNo = 1;
 if(EventString != null){
 	int EventNo = Integer.parseInt(EventString.toString());
 	attend a = new attend(jdbc.getConn());

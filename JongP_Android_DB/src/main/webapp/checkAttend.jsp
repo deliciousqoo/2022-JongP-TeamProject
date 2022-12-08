@@ -7,10 +7,8 @@
 <%	
 ConnectDB jdbc = new ConnectDB();
 CheckAttend a = new CheckAttend(jdbc.getConn());
-// String SSN= request.getParameter("SSN");
-// int EventNo = Integer.parseInt(request.getParameter("EventNo"));
-String SSN = "D1017";
-int EventNo = 2;
+String SSN= request.getParameter("Ssn");
+int EventNo = Integer.parseInt(request.getParameter("EventNo"));
 String result = a.checkAttend(SSN, EventNo);
 %>
 <%= result%>

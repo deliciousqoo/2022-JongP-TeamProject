@@ -283,6 +283,12 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.body_container, FragmentManageAttend::class.java, null)
                     .commit()
             }
+            13->    {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.body_container, FragmentShareFile::class.java, null)
+                    .commit()
+            }
         }
     }
 

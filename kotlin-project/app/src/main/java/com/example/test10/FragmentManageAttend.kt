@@ -28,6 +28,8 @@ class FragmentManageAttend : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentManageAttendBinding.inflate(inflater, container, false)
+        val cName = "정수호"
+        binding.textView.text = cName + " 관리자님 환영합니다. \n버튼을 눌러 참석 여부를 변경할 수 있습니다."
         recycler_view = binding.attelistrecycler
         loadData()
         return binding.root

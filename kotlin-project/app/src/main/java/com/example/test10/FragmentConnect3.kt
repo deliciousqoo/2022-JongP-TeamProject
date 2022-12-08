@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.FragmentConnect3Binding
-import kotlinx.android.synthetic.main.fragment_connect_1.*
-import kotlinx.android.synthetic.main.fragment_vote_code.*
 import retrofit2.*
 
 class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
@@ -30,6 +28,8 @@ class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentConnect3Binding.inflate(inflater, container, false)
+        val cName = "정수호"
+        binding.textView.text = cName + "님 환영합니다."
         recycler_view = binding.attelistrecycler
         loadData()
         return binding.root
@@ -44,8 +44,9 @@ class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
     }
     // 리사이클 뷰에 들어갈 데이터 쓰기
     private fun loadData() {
-        val retrofitService = RetrofitClass.api.getItems(1)
-        retrofitService.enqueue(object : Callback<AttendList> {
+        val eventNo = 1
+        val retrofitService = RetrofitClass.api.getItems(eventNo)
+        retrofitService.enqueue( object : Callback<AttendList> {
             override fun onResponse(call: Call<AttendList>, response: Response<AttendList>) {
                 if (response.isSuccessful) {
                     val body = response.body()

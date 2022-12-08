@@ -8,6 +8,6 @@ data class Item(
     val SSN: String,
     val NAME: String,
     val RANK: String,
-    val ATTEND: Boolean
+    var ATTEND: Boolean
 )
 

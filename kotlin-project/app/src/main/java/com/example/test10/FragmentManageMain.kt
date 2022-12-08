@@ -33,6 +33,9 @@ class FragmentManageMain : Fragment(),MainActivity.onBackPressedListener {
         binding.manageAttendance.setOnClickListener {
             mActivity.changeFragment(12)
         }
+        binding.manageData.setOnClickListener {
+            mActivity.changeFragment(13)
+        }
 
         return binding.root
     }

@@ -30,6 +30,7 @@ public class AttendCode {
 //					System.out.println("wrong code");
 				}
 			}
+			conn.commit();
 
 			ps.close();
 			rs.close();
@@ -51,6 +52,8 @@ public class AttendCode {
 				conn.commit();
 			}
 			ps.close();
+			conn.commit();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -71,6 +72,7 @@ class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
         var adapter =  VoteAdapter(items)
         adapter!!.itemClick = object : VoteAdapter.ItemClick{
             override fun onClick(view: View, position: Int) {
+                clientDataClass.currentAgenda = items[position].voteno
                 mActivity.changeFragment(10)
             }
         }

@@ -8,9 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_vote.view.*
 
-class RecyclerVoteAdapter : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>() {
-    var items = mutableListOf<VoteData>()
-    override fun getItemCount(): Int = items.size
+class RecyclerVoteAdapter(val items: ArrayList<VoteItem>) : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerVoteAdapter.ViewHolder, position: Int) {
 
@@ -36,11 +34,11 @@ class RecyclerVoteAdapter : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>
     // 각 항목에 필요한 기능을 구현
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         private var view: View = v
-        fun bind(listener: View.OnClickListener, item: VoteData) {
+        fun bind(listener: View.OnClickListener, item: VoteItem) {
             view.voteTitle.text = item.title
             view.voteExplain.text = item.explain
-            view.startVoteTime.text = item.starttime
-            view.endVoteTime.text = item.endtime
+            //view.startVoteTime.text = item.starttime
+            //view.endVoteTime.text = item.endtime
             view.setOnClickListener(listener)
             view.startVote.setOnClickListener {
                 view.startVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
@@ -52,5 +50,9 @@ class RecyclerVoteAdapter : RecyclerView.Adapter<RecyclerVoteAdapter.ViewHolder>
             }
         }
 
+    }
+
+    override fun getItemCount(): Int {
+        return items.count()
     }
 }

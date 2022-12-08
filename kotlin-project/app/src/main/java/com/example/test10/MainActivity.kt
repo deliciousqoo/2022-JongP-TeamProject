@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     interface onBackPressedListener {
-        fun onBackPressed()
+         fun onBackPressed()
     }
 
     override fun onBackPressed() { //뒤로가기 처리

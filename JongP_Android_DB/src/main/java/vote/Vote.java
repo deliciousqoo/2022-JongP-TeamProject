@@ -53,7 +53,7 @@ public class Vote {
 		return json.toString();
 	}
 	
-	public String getVoteInfo(int EventNo, int VoteNo) {
+	public String getVoteInfo(String Ssn, int EventNo, int VoteNo) {
 		JsonObject VoteInfo = new JsonObject();
 		String sql = "";
 		PreparedStatement ps = null;
@@ -79,6 +79,19 @@ public class Vote {
 					status = 2;
 				}
 				VoteInfo.addProperty("STATUS", status);
+				
+				sql = "select * from participate where eventno=? and voteno=? and ssn=?";
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, EventNo);
+				ps.setInt(2, VoteNo);
+				ps.setString(3, Ssn);
+				rs = ps.executeQuery();
+				
+				if(rs.next()) {
+					VoteInfo.addProperty("ANSWER", rs.getInt(4));
+				}else {
+					VoteInfo.addProperty("ANSWER", 0);
+				}
 			}
 			ps.close();
 			rs.close();

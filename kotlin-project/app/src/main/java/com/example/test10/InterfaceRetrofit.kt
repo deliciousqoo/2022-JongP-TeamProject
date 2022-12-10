@@ -17,6 +17,9 @@ interface InterfaceRetrofit {
                      @Query("Code") Code:String,
                      @Query("EventNo") EventNo:Int): Call<checkBooleanClass>
 
+    @GET("JongP_Android_DB/getEventList.jsp")
+    fun getEventList():Call<EventList>
+
     @GET("JongP_Android_DB/getVoteInfo.jsp")
     fun getVoteInfo(@Query("Ssn") Ssn:String,
                     @Query("EventNo") EventNo: Int,

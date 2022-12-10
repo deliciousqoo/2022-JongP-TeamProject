@@ -25,6 +25,11 @@ interface InterfaceRetrofit {
     @GET("JongP_Android_DB/getVoteList.jsp")
     fun getVoteItems(@Query("EventNo") EventNo:Int): Call<VoteList>
 
+    @GET("JongP_Android_DB/insertVote.jsp")
+    fun insertVote(@Query("EventNo") EventNo: Int,
+                    @Query("Agenda") Agenda: String,
+                    @Query("Content") Content: String) : Call<checkBooleanClass>
+
     @GET("JongP_Android_DB/manageAttend.jsp")
     fun getChangeStatus(@Query("Ssn") Ssn:String,
                         @Query("Attend") Attend:Boolean,
@@ -42,6 +47,6 @@ interface InterfaceRetrofit {
     @GET("JongP_Android_DB/updateTime.jsp")
     fun changeVoteStatus(@Query("EventNo") EventNo:Int,
                          @Query("VoteNo") VoteNo:Int,
-                         @Query("isStart") isStart:Boolean ):Call<checkBooleanClass>
+                         @Query("isStart") isStart:Boolean ):Call<checkBooleanNTimeClass>
 
 }

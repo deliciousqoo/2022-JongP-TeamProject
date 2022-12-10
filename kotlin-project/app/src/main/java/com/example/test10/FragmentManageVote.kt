@@ -17,9 +17,6 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
 
     private lateinit var binding: FragmentManageVoteBinding
     private lateinit var recycler_view: RecyclerView
-    val mActivity by lazy {
-        requireActivity() as MainActivity
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +39,7 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
         requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
     }
     private fun setAdapter(items : ArrayList<VoteItem>){
-        var adapter = RecyclerVoteAdapter(items)
+        var adapter = RecyclerAdapterManageVoteList(items)
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this.context)
     }
@@ -63,7 +60,6 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
                     }
                 }
             }
-
             override fun onFailure(call: Call<VoteList>, t: Throwable) {
                 Log.d("YMC", "onFailure 에러 " + t.message.toString())
             }

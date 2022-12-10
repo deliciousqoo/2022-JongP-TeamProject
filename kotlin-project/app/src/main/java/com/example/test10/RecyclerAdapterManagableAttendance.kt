@@ -13,12 +13,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RecyclerAdapterManagableAttendance(
-    val items: ArrayList<Item>, val context: Context?
-) : RecyclerView.Adapter<RecyclerAdapterManagableAttendance.ViewHolder>() {
-    internal interface OnItemClickListener {
-        fun onItemClick(v: View?, position: Int) {
-        }
-    }
+    val items: ArrayList<Item>, val context: Context?)
+    : RecyclerView.Adapter<RecyclerAdapterManagableAttendance.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemConnect3Binding.inflate(LayoutInflater.from(parent.context), parent, false)

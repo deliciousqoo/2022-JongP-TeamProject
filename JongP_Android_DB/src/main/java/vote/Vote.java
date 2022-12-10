@@ -2,6 +2,8 @@ package vote;
 
 import java.sql.*;
 
+import org.apache.catalina.startup.AddPortOffsetRule;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -163,7 +165,7 @@ public class Vote {
 		String sql = "";
 		PreparedStatement ps = null;
 		java.sql.Date Time = new java.sql.Date(System.currentTimeMillis());
-
+		
 		try {
 			sql = "select * from vote where eventno=? and voteno=?";
 			ps = conn.prepareStatement(sql);
@@ -186,6 +188,8 @@ public class Vote {
 						if (res == 1) {
 							conn.commit();
 							json.addProperty("checkBoolean", true);
+							json.addProperty("time", Time.toString());
+							
 						}else {
 							json.addProperty("checkBoolean", false);
 						}
@@ -204,6 +208,7 @@ public class Vote {
 						if (res == 1) {
 							conn.commit();
 							json.addProperty("checkBoolean", true);
+							json.addProperty("time", Time.toString());
 						}else {
 							json.addProperty("checkBoolean", false);
 						}
@@ -217,9 +222,64 @@ public class Vote {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		
+		return json.toString();
+	}
+		
+// 	투표 추가하기
+//	Insert into VOTE (EVENTNO,VOTENO,AGENDA,CONTENT,STARTTIME,FINISHTIME) 
+//	values (4,1,'저녁메뉴','국밥 먹으러 갈 사람',null,null);
+	public String insertVote(int EventNo, String Agenda, String content) {
+		JsonObject json = new JsonObject();
+		String sql = "";
+		PreparedStatement ps = null;
+		sql = "Insert into VOTE (EVENTNO,VOTENO,AGENDA,CONTENT,STARTTIME,FINISHTIME) "
+				+"values (?,?,?,?,null,null)";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, EventNo);
+			ps.setInt(2, nextVoteNo(EventNo));
+			ps.setString(3, Agenda);			
+			ps.setString(4, content);			
+			
+			int rs = ps.executeUpdate();
+			if (rs == 1) {
+				conn.commit();
+				json.addProperty("checkBoolean", true);
+			}else {
+				json.addProperty("checkBoolean", false);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+//		json.addProperty("EventNo", EventNo);
+//		json.addProperty("agenda", Agenda);
+//		json.addProperty("content", content);
 		return json.toString();
 	}
 	
-	
+	public int nextVoteNo(int EventNo) {
+		int res = 0;
+		String sql = "";
+		PreparedStatement ps = null;
+		sql = "select max(voteno) as max from vote where eventno=? group by eventno";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, EventNo);			
+			
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				res = rs.getInt(1);
+			}else {
+				res = 0;
+			}
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return res + 1;
+	}
+
 }

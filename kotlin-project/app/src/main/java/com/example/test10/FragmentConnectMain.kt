@@ -53,9 +53,9 @@ class FragmentConnectMain : Fragment(),MainActivity.onBackPressedListener {
     }
 
     fun checkAttend(mActivity:MainActivity){
-        val Ssn = "D1017"
-        val EventNo = 1
-        val retrofitService = RetrofitClass.api.getCheckStatus(Ssn,EventNo)
+        val Ssn = DataClassClient.SSN
+        val EventNo = DataClassClient.currentEvent
+        val retrofitService = ClassSingleRetrofit.api.getCheckStatus(Ssn,EventNo)
         retrofitService.enqueue(object :Callback<checkBooleanClass>{
             override fun onResponse(
                 call: Call<checkBooleanClass>,

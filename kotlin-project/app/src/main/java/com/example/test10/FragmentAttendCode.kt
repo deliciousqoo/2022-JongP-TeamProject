@@ -28,20 +28,9 @@ class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentAttendCodeBinding.inflate(inflater, container, false)
-
-        val mActivity = activity as MainActivity
-
         binding.checkBtn.setOnClickListener {
             val tempPassword = binding.attendPassword.text.toString()
             checkCode(tempPassword)
-
-//            if(tempPassword == "1234")  {
-//                Toast.makeText(requireContext(), "출석되었습니다", Toast.LENGTH_LONG).show()
-//                mActivity.changeFragment(1)
-//            }
-//            else    {
-//                Toast.makeText(requireContext(), "잘못된 입력입니다", Toast.LENGTH_LONG).show()
-//            }
         }
 
         return binding.root
@@ -63,7 +52,9 @@ class FragmentAttendCode : Fragment(),MainActivity.onBackPressedListener {
     }
 
     private fun checkCode(InputedCode:String) {
-        val retrofitService = RetrofitClass.api.getCodeCheck("D1017",InputedCode,1)
+        val Ssn = DataClassClient.SSN
+        val EventNo = DataClassClient.currentEvent
+        val retrofitService = ClassSingleRetrofit.api.getCodeCheck(Ssn,InputedCode,EventNo)
         retrofitService.enqueue( object : Callback<checkBooleanClass>{
             override fun onResponse(
                 call: Call<checkBooleanClass>,

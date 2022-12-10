@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.ItemViewVoteBinding
 
-class VoteAdapter(val datas: ArrayList<VoteItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerAdapterVoteList(val datas: ArrayList<VoteItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class Frag2ViewHolder3(val binding: ItemViewVoteBinding): RecyclerView.ViewHolder(binding.root), MainActivity.onBackPressedListener {
         override fun onBackPressed() {
             Log.d("Holder", "Holder")
@@ -26,7 +26,7 @@ class VoteAdapter(val datas: ArrayList<VoteItem>): RecyclerView.Adapter<Recycler
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is VoteAdapter.Frag2ViewHolder3) {
+        if (holder is RecyclerAdapterVoteList.Frag2ViewHolder3) {
             val binding = holder.binding
 
             binding.VoteTitle.text = "안건 ${position + 1} : " + datas[position].title

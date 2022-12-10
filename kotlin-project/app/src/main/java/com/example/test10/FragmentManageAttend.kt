@@ -28,7 +28,7 @@ class FragmentManageAttend : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentManageAttendBinding.inflate(inflater, container, false)
-        val cName = "정수호"
+        val cName = DataClassClient.name
         binding.textView.text = cName + " 관리자님 환영합니다. \n버튼을 눌러 참석 여부를 변경할 수 있습니다."
         recycler_view = binding.attelistrecycler
         loadData()
@@ -38,13 +38,14 @@ class FragmentManageAttend : Fragment(),MainActivity.onBackPressedListener {
         requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
     }
     private fun setAdapter(items : ArrayList<Item>){
-        var adapter = AttendanceManagableAdapter(items, this.context)
+        var adapter = RecyclerAdapterManagableAttendance(items, this.context)
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this.context)
     }
     // 리사이클 뷰에 들어갈 데이터 쓰기
     private fun loadData() {
-        val retrofitService = RetrofitClass.api.getItems(1)
+        val eventNo = DataClassClient.currentEvent
+        val retrofitService = ClassSingleRetrofit.api.getItems(eventNo)
         retrofitService.enqueue(object : Callback<AttendList> {
             override fun onResponse(call: Call<AttendList>, response: Response<AttendList>) {
                 if (response.isSuccessful) {

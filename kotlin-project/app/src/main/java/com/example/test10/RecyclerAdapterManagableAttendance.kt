@@ -12,9 +12,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AttendanceManagableAdapter(
+class RecyclerAdapterManagableAttendance(
     val items: ArrayList<Item>, val context: Context?
-) : RecyclerView.Adapter<AttendanceManagableAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerAdapterManagableAttendance.ViewHolder>() {
     internal interface OnItemClickListener {
         fun onItemClick(v: View?, position: Int) {
         }
@@ -62,7 +62,7 @@ class AttendanceManagableAdapter(
         }
 
         private fun requestChangeAttend(item: Item, dataChanged: () -> Unit) {
-            val retrofitService = RetrofitClass.api.getChangeStatus(ssn,!attend,1)
+            val retrofitService = ClassSingleRetrofit.api.getChangeStatus(ssn,!attend,1)
             retrofitService.enqueue(object : Callback<checkBooleanClass>{
                 override fun onResponse(
                     call: Call<checkBooleanClass>,

@@ -33,12 +33,6 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentManageVoteBinding.inflate(inflater, container, false)
-//        val mActivity = activity as MainActivity
-//        val data:MutableList<VoteData> = loadVote()
-//        var adapter = RecyclerVoteAdapter()
-//        adapter.items = data
-//        binding.votelist.adapter = adapter
-//        binding.votelist.layoutManager = LinearLayoutManager(requireContext())
         recycler_view = binding.votelist
         loadData()
         return binding.root
@@ -53,8 +47,8 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
         recycler_view.layoutManager = LinearLayoutManager(this.context)
     }
     private fun loadData() {
-        val eventNo = 1
-        val retrofitService = RetrofitClass.api.getVoteItems(eventNo)
+        val eventNo = DataClassClient.currentEvent
+        val retrofitService = ClassSingleRetrofit.api.getVoteItems(eventNo)
         retrofitService.enqueue( object : Callback<VoteList> {
             override fun onResponse(
                 call: Call<VoteList>,
@@ -74,18 +68,5 @@ class FragmentManageVote : Fragment(),MainActivity.onBackPressedListener {
                 Log.d("YMC", "onFailure 에러 " + t.message.toString())
             }
         })
-    }
-    fun loadVote(): MutableList<VoteData> {
-        val data: MutableList<VoteData> = mutableListOf()
-        for (no in 1..3) {
-            var title = "투표제목"
-            var explain = "투표설명"
-            var starttime = "11월 29일 12시"
-            var endtime = "11월 29일 1시"
-
-            var box = VoteData(title, explain, starttime, endtime)
-            data.add(box)
-        }
-        return data;
     }
 }

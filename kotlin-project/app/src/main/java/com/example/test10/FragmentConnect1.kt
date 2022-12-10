@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_connect_1.*
 
 class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
 
-    private var mAdapter: RecyclerAdapter5? = null
+    private var mAdapter: RecyclerAdapterProgress? = null
     private var list: ArrayList<Progress>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
     }
 
     private fun loadData() {
-        val retrofitService = RetrofitClass.api.getEventInfo(clientDataClass.currentEvent)
+        val retrofitService = ClassSingleRetrofit.api.getEventInfo(DataClassClient.currentEvent)
         retrofitService.enqueue(object : Callback<EventInfo> {
             override fun onResponse(call: Call<EventInfo>, response: Response<EventInfo>) {
                 if (response.isSuccessful) {
@@ -77,7 +77,7 @@ class FragmentConnect1 : Fragment(),MainActivity.onBackPressedListener {
         val mRecyclerView = view.findViewById<View>(R.id.progressList) as RecyclerView
         val mLayoutManager = LinearLayoutManager(requireContext())
         mRecyclerView.layoutManager = mLayoutManager
-        mAdapter = RecyclerAdapter5(this)    //
+        mAdapter = RecyclerAdapterProgress(this)    //
         mAdapter!!.setLinearLayoutManager(mLayoutManager)
         mAdapter!!.setRecyclerView(mRecyclerView)
         mRecyclerView.adapter = mAdapter

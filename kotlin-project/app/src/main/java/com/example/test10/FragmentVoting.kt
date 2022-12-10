@@ -14,7 +14,6 @@ import retrofit2.Response
 class FragmentVoting : Fragment(),MainActivity.onBackPressedListener {
 
     private lateinit var binding: FragmentVotingBinding
-    private var ssn = "D1017"
     private var myAnswer = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +42,10 @@ class FragmentVoting : Fragment(),MainActivity.onBackPressedListener {
     }
 
     private fun loadData() {
-        val retrofitService = RetrofitClass.api.getVoteInfo(ssn, clientDataClass.currentEvent, clientDataClass.currentAgenda)
+        val ssn = DataClassClient.SSN
+        val eventNo = DataClassClient.currentEvent
+        val agendaNo = DataClassClient.currentAgenda
+        val retrofitService = ClassSingleRetrofit.api.getVoteInfo(ssn, eventNo, agendaNo)
         retrofitService.enqueue(object : Callback<VoteInfo> {
             override fun onResponse(call: Call<VoteInfo>, response: Response<VoteInfo>) {
                 if (response.isSuccessful) {
@@ -85,7 +87,10 @@ class FragmentVoting : Fragment(),MainActivity.onBackPressedListener {
     }
 
     private fun requestParticipating(answer: Int, dataChanged: () -> Unit) {
-        val retrofitService = RetrofitClass.api.participateVote(ssn, clientDataClass.currentEvent, clientDataClass.currentAgenda, answer)
+        val ssn = DataClassClient.SSN
+        val eventNo = DataClassClient.currentEvent
+        val agendaNo = DataClassClient.currentAgenda
+        val retrofitService = ClassSingleRetrofit.api.participateVote(ssn, eventNo, agendaNo, answer)
         retrofitService.enqueue(object : Callback<checkBooleanClass>{
             override fun onResponse(
                 call: Call<checkBooleanClass>,

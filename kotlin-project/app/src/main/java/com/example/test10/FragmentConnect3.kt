@@ -28,8 +28,7 @@ class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentConnect3Binding.inflate(inflater, container, false)
-        val cName = "정수호"
-        binding.textView.text = cName + "님 환영합니다."
+        binding.textView.text = DataClassClient.name + "님 환영합니다."
         recycler_view = binding.attelistrecycler
         loadData()
         return binding.root
@@ -38,14 +37,14 @@ class FragmentConnect3 : Fragment(),MainActivity.onBackPressedListener {
         requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
     }
     private fun setAdapter(items : ArrayList<Item>){
-        var adapter = AttendanceAdapter(items, this.context)
+        var adapter = RecyclerAdapterAttendance(items, this.context)
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this.context)
     }
     // 리사이클 뷰에 들어갈 데이터 쓰기
     private fun loadData() {
-        val eventNo = 1
-        val retrofitService = RetrofitClass.api.getItems(eventNo)
+        val eventNo = DataClassClient.currentEvent
+        val retrofitService = ClassSingleRetrofit.api.getItems(eventNo)
         retrofitService.enqueue( object : Callback<AttendList> {
             override fun onResponse(call: Call<AttendList>, response: Response<AttendList>) {
                 if (response.isSuccessful) {

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.test10.databinding.FragmentCreateVoteBinding
 
-class FragmentCreateVote : Fragment(),MainActivity.onBackPressedListener {
+class FragmentManageCreateVote : Fragment(),MainActivity.onBackPressedListener {
 
     private lateinit var binding: FragmentCreateVoteBinding
 

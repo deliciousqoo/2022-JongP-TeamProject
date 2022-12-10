@@ -234,7 +234,7 @@ class MainActivity : AppCompatActivity() {
             6-> {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.body_container, FragmentVoteCode::class.java, null)
+                    .replace(R.id.body_container, FragmentVoteList::class.java, null)
                     .setReorderingAllowed(true)
                     .addToBackStack("voteCode")
                     .commit()
@@ -258,7 +258,7 @@ class MainActivity : AppCompatActivity() {
             9-> {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.body_container, FragmentCreateVote::class.java, null)
+                    .replace(R.id.body_container, FragmentManageCreateVote::class.java, null)
                     .setReorderingAllowed(true)
                     .addToBackStack("createVote")
                     .commit()

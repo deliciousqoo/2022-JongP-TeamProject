@@ -6,12 +6,12 @@
     pageEncoding="UTF-8"%>
 <%	
 ConnectDB jdbc = new ConnectDB();
-//int EventNo = Integer.parseInt(request.getParameter("EventNo"));
-//int VoteNo = Integer.parseInt(request.getParameter("VoteNo"));
-//boolean isStart = Boolean.parseBoolean(request.getParameter("isStart"));
-int EventNo = 5;
+int EventNo = Integer.parseInt(request.getParameter("EventNo"));
+int VoteNo = Integer.parseInt(request.getParameter("VoteNo"));
+boolean isStart = Boolean.parseBoolean(request.getParameter("isStart"));
+/* int EventNo = 5;
 int VoteNo = 1;
-boolean isStart = true;
+boolean isStart = true; */
 Vote v = new Vote(jdbc.getConn());
 String result = v.updateTime(EventNo, VoteNo, isStart);
 %>

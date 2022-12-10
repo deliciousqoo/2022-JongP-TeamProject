@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
+class FragmentVoteList : Fragment(),MainActivity.onBackPressedListener {
 
     private lateinit var binding: FragmentVoteCodeBinding
     private lateinit var recycler_view: RecyclerView
@@ -34,30 +33,6 @@ class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        val data = ArrayList<VoteContents>()
-//        data.add(VoteContents("lorem ipsum", "관리자", "투표 종료"))
-//        data.add(VoteContents("lorem ipsum", "노준수", "투표 진행중"))
-//        data.add(VoteContents("lorem ipsum", "관리자", "투표 종료"))
-//        data.add(VoteContents("lorem ipsum", "노준수", "투표 진행중"))
-//        data.add(VoteContents("lorem ipsum", "관리자", "투표 종료"))
-//        data.add(VoteContents("lorem ipsum", "노준수", "투표 진행중"))
-//        data.add(VoteContents("lorem ipsum", "관리자", "투표 종료"))
-//        data.add(VoteContents("lorem ipsum", "노준수", "투표 진행중"))
-//
-//
-//        binding = FragmentVoteCodeBinding.inflate(inflater, container, false)
-//        val mActivity = activity as MainActivity
-//
-//        binding.recyclerView.layoutManager = LinearLayoutManager(mActivity)
-//        var adapter = RecyclerAdapter_FragmentVote(data)
-//        adapter!!.itemClick = object : RecyclerAdapter_FragmentVote.ItemClick{
-//            override fun onClick(view: View, position: Int) {
-//                mActivity.changeFragment(10)
-//
-//            }
-//        }
-//        binding.recyclerView.adapter = adapter
         binding = FragmentVoteCodeBinding.inflate(inflater, container, false)
         recycler_view = binding.recyclerView
         loadData()
@@ -69,10 +44,10 @@ class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
         requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
     }
     private fun setAdapter(items : ArrayList<VoteItem>){
-        var adapter =  VoteAdapter(items)
-        adapter!!.itemClick = object : VoteAdapter.ItemClick{
+        var adapter =  RecyclerAdapterVoteList(items)
+        adapter!!.itemClick = object : RecyclerAdapterVoteList.ItemClick{
             override fun onClick(view: View, position: Int) {
-                clientDataClass.currentAgenda = items[position].voteno
+                DataClassClient.currentAgenda = items[position].voteno
                 mActivity.changeFragment(10)
             }
         }
@@ -80,8 +55,8 @@ class FragmentVoteCode : Fragment(),MainActivity.onBackPressedListener {
         recycler_view.layoutManager = LinearLayoutManager(this.context)
     }
     private fun loadData() {
-        val eventNo = 1
-        val retrofitService = RetrofitClass.api.getVoteItems(eventNo)
+        val eventNo = DataClassClient.currentEvent
+        val retrofitService = ClassSingleRetrofit.api.getVoteItems(eventNo)
         retrofitService.enqueue( object : Callback<VoteList> {
             override fun onResponse(
                 call: Call<VoteList>,

@@ -11,7 +11,7 @@ public class Vote {
 	public Vote(Connection conn) {
 		this.conn = conn;
 	}
-	
+//	투표 목록 띄우기 
 	public String getVoteList(int EventNo) {
 		JsonObject json = new JsonObject();
 		JsonArray VoteList = new JsonArray();		
@@ -52,7 +52,8 @@ public class Vote {
 
 		return json.toString();
 	}
-	
+
+//	투표 정보 띄우기 
 	public String getVoteInfo(String Ssn, int EventNo, int VoteNo) {
 		JsonObject VoteInfo = new JsonObject();
 		String sql = "";
@@ -101,7 +102,8 @@ public class Vote {
 
 		return VoteInfo.toString();
 	}
-	
+
+//	투표 참가하기 
 	public String participateVote(String SSN, int EventNo, int VoteNo, int Answer) {
 		JsonObject json = new JsonObject();
 		String sql = "";
@@ -154,7 +156,8 @@ public class Vote {
 
 		return json.toString();
 	}
-	
+
+//	시간 업데이트하기
 	public String updateTime(int EventNo, int VoteNo, boolean isStart) {
 		JsonObject json = new JsonObject();
 		String sql = "";

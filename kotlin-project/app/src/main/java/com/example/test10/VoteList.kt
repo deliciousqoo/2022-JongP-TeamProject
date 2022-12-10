@@ -8,6 +8,8 @@ data class VoteItem (
     var title: String,
     var status: Int,
     var voteno: Int,
-    var explain:String
+    var explain:String,
+    var starttime:String,
+    var endtime:String
     )
 

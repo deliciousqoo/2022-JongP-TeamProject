@@ -43,7 +43,6 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
 
-                android:backgroundTint="#8BC34A"
                 android:onClick="OnClick"
 
                 android:text="투표시작" />
@@ -55,7 +54,6 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="#9F9F9F"
                 android:text="투표종료" />
 
         </LinearLayout>
@@ -65,14 +63,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="투표 시작 시간" />
+            android:text="투표 시작 일자" />
 
         <TextView
             android:id="@+id/endVoteTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="투표 종료 시간" />
+            android:text="투표 종료 일자" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -37,20 +37,66 @@ class RecyclerVoteAdapter(val items: ArrayList<VoteItem>) : RecyclerView.Adapter
         fun bind(listener: View.OnClickListener, item: VoteItem) {
             view.voteTitle.text = item.title
             view.voteExplain.text = item.explain
-            //view.startVoteTime.text = item.starttime
-            //view.endVoteTime.text = item.endtime
-            view.setOnClickListener(listener)
+            if(item.status == 0){
+                setReady()
+            }else if(item.status == 1) {
+                view.startVoteTime.text = "투표 시작 일자 : "+item.starttime
+                setStarted()
+            }else{
+                view.startVoteTime.text = "투표 시작 일자 : "+item.starttime
+                view.endVoteTime.text = "투표 종료 일자 : "+item.endtime
+                setEnded()
+            }
+            //view.setOnClickListener(listener)
+        }
+        fun setReady(){
+            view.startVote.setBackgroundColor(Color.parseColor("#8BC34A"))
+            view.endVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
             view.startVote.setOnClickListener {
-                view.startVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
-                view.endVote.setBackgroundColor(Color.parseColor("#8BC34A"))
+                setStarted()
             }
             view.endVote.setOnClickListener {
-                view.endVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
-                view.startVote.setBackgroundColor(Color.parseColor("#8BC34A"))
+                Toast.makeText(
+                    it.context,
+                    "아직 시작하지 않은 회의 입니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
-
+        fun setStarted(){
+            view.startVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
+            view.endVote.setBackgroundColor(Color.parseColor("#8BC34A"))
+            view.startVote.setOnClickListener {
+                Toast.makeText(
+                    it.context,
+                    "이미 시작한 회의 입니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            view.endVote.setOnClickListener {
+                setEnded()
+            }
+        }
+        fun setEnded(){
+            view.endVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
+            view.startVote.setBackgroundColor(Color.parseColor("#FF9F9F9F"))
+            view.startVote.setOnClickListener {
+                Toast.makeText(
+                    it.context,
+                    "이미 종료된 회의 입니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            view.endVote.setOnClickListener {
+                Toast.makeText(
+                    it.context,
+                    "이미 종료된 회의 입니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
+
 
     override fun getItemCount(): Int {
         return items.count()

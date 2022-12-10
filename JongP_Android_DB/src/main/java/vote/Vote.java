@@ -32,11 +32,11 @@ public class Vote {
 				
 				int status = 0;
 				if(rs.getDate(5) != null) {
-					//VoteInfo.addProperty("STARTTIME", rs.getDate(5).toString());
+					VoteInfo.addProperty("starttime", rs.getDate(5).toString());
 					status = 1;
 				}
 				if(rs.getDate(6) != null) {
-					//VoteInfo.addProperty("FINISHTIME", rs.getDate(6).toString());
+					VoteInfo.addProperty("endtime", rs.getDate(6).toString());
 					status = 2;
 				}
 				VoteInfo.addProperty("status", status);
@@ -217,4 +217,6 @@ public class Vote {
 
 		return json.toString();
 	}
+	
+	
 }

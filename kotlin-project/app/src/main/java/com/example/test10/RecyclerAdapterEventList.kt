@@ -40,6 +40,7 @@ class RecyclerAdapterEventList(
                 mActivity.changeFragment(1)
             }
             binding.eventBtn.setOnLongClickListener {
+                DataClassClient.currentEvent = item.EventNo
                 val mDialogView = LayoutInflater.from(context).inflate(R.layout.manage_check_dialog, null)
                 val mBuilder = AlertDialog.Builder(context)
                     .setView(mDialogView)

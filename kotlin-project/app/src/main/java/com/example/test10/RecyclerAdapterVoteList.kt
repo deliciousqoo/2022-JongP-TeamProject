@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test10.databinding.ItemViewVoteBinding
 
-class RecyclerAdapterVoteList(val datas: ArrayList<VoteItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerAdapterVoteList(
+    val datas: ArrayList<VoteItem>)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class Frag2ViewHolder3(val binding: ItemViewVoteBinding): RecyclerView.ViewHolder(binding.root), MainActivity.onBackPressedListener {
         override fun onBackPressed() {
             Log.d("Holder", "Holder")

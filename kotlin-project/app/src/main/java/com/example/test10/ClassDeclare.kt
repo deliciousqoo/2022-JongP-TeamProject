@@ -1,4 +1,13 @@
 package com.example.test10
+data class EventList(
+    val items: ArrayList<EventItem>
+)
+data class EventItem(
+    val EventNo:Int,
+    val Name:String,
+    val Location:String,
+    val Date:String
+)
 
 data class checkBooleanClass (
     val checkBoolean : Boolean

@@ -4,6 +4,11 @@ data class checkBooleanClass (
     val checkBoolean : Boolean
 )
 
+data class checkBooleanNTimeClass (
+    val checkBoolean : Boolean,
+    val time : String
+)
+
 data class AttendList (
     val items: ArrayList<Item>
 )

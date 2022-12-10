@@ -7,12 +7,12 @@
 <%	
 ConnectDB jdbc = new ConnectDB();
 int EventNo = Integer.parseInt(request.getParameter("EventNo"));
-int VoteNo = Integer.parseInt(request.getParameter("VoteNo"));
-boolean isStart = Boolean.parseBoolean(request.getParameter("isStart"));
-/* int EventNo = 1;
-int VoteNo = 3;
-boolean isStart = true;   */
+String Agenda = request.getParameter("Agenda");
+String content = request.getParameter("Content");
+/* int EventNo = 2;
+String Agenda = "아침 메뉴";  
+String content = "해장국 어떠신가요?"; */
 Vote v = new Vote(jdbc.getConn());
-String result = v.updateTime(EventNo, VoteNo, isStart);
+String result = v.insertVote(EventNo, Agenda, content);
 %>
 <%= result%>

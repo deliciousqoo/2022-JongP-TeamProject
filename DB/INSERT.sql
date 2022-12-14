@@ -224,4 +224,8 @@ Insert into PARTICIPATE (SSN,EVENTNO,VOTENO,ANSWER) values ('S1018',1,1,1);
 Insert into PARTICIPATE (SSN,EVENTNO,VOTENO,ANSWER) values ('S1031',1,1,2);
 Insert into PARTICIPATE (SSN,EVENTNO,VOTENO,ANSWER) values ('S1032',1,1,3);
 Insert into PARTICIPATE (SSN,EVENTNO,VOTENO,ANSWER) values ('S1033',1,1,2);
+SET DEFINE OFF;
+Insert into MATERIAL (EVENTNO,MATENO,MFILE,MDESCRIPTION) values (1, 1, 'https://docs.google.com/presentation/d/1F2ah2MX1SsLtYB-isxRNNXQfI0-73WMg/edit?usp=sharing&ouid=107207103656101966670&rtpof=true&sd=true','');
+Insert into MATERIAL (EVENTNO,MATENO,MFILE,MDESCRIPTION) values (2, 1, 'https://drive.google.com/file/d/1IdS1fS2DERab3FHaykJZ2vMBwb6RfvrP/view?usp=sharing','');
+Insert into MATERIAL (EVENTNO,MATENO,MFILE,MDESCRIPTION) values (3, 1, 'https://docs.google.com/document/d/1wGYyeCFv5s_M2VFDNO7gtF8Cn8XoXTV8xK7ucGSMaxk/edit?usp=sharing','');
 commit;

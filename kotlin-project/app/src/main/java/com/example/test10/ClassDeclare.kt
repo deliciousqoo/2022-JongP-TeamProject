@@ -1,4 +1,9 @@
 package com.example.test10
+
+data class EventFile(
+    val Url: String,
+    var Description:String
+)
 data class EventList(
     val items: ArrayList<EventItem>
 )

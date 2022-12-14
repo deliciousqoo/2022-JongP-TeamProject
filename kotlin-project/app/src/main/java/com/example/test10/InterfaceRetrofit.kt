@@ -20,6 +20,9 @@ interface InterfaceRetrofit {
     @GET("JongP_Android_DB/getEventList.jsp")
     fun getEventList():Call<EventList>
 
+    @GET("JongP_Android_DB/getEventFile.jsp")
+    fun getEventFile(@Query("EventNo") EventNo:Int): Call<EventFile>
+
     @GET("JongP_Android_DB/getVoteInfo.jsp")
     fun getVoteInfo(@Query("Ssn") Ssn:String,
                     @Query("EventNo") EventNo: Int,

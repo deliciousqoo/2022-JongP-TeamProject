@@ -8,7 +8,11 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.zxing.integration.android.IntentIntegrator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ScannerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,16 +41,46 @@ class ScannerActivity : AppCompatActivity() {
                 startActivity(preIntent)
             }
             else {
-                Toast.makeText(this, "scanned" + result.contents, Toast.LENGTH_LONG).show()
-                Log.d("TTT", "QR 코드 URL:${result.contents}")
+                //Toast.makeText(this, "scanned : " + result.contents, Toast.LENGTH_LONG).show()
+                checkCode(result.contents)
 
-                web_view.settings.javaScriptEnabled = true
-                web_view.webViewClient = WebViewClient()
-
-                web_view.loadUrl(result.contents)
+//                Log.d("TTT", "QR 코드 URL:${result.contents}")
+//                web_view.settings.javaScriptEnabled = true
+//                web_view.webViewClient = WebViewClient()
+//                web_view.loadUrl(result.contents)
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+    private fun checkCode(InputedCode:String) {
+        val Ssn = DataClassClient.SSN
+        val EventNo = DataClassClient.currentEvent
+        val retrofitService = ClassSingleRetrofit.api.getCodeCheck(Ssn,InputedCode,EventNo)
+        retrofitService.enqueue( object : Callback<checkBooleanClass> {
+            override fun onResponse(
+                call: Call<checkBooleanClass>,
+                response: Response<checkBooleanClass>
+            ) {
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    Log.d("YMC", "성공 "+body.toString())
+                    body?.let {
+                        if(body.checkBoolean) {
+                            setResult(RESULT_OK)
+                        }
+                        else{
+                            setResult(RESULT_CANCELED)
+                        }
+                        finish()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<checkBooleanClass>, t: Throwable) {
+                Log.d("YMC", "onFailure 에러 " + t.message.toString())
+            }
+        })
     }
 }

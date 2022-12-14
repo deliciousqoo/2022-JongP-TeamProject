@@ -79,4 +79,26 @@ public class Event {
 		return eventListOb.toString();
 	}
 
+	public String showEventFile(int eventNo) {
+		JsonObject eventInfo = new JsonObject();
+		String sql = "";
+		PreparedStatement pstmt = null;
+
+		try {
+			sql = "select * from material where eventno=?";
+			pstmt = Conn.prepareStatement(sql);
+			pstmt.setInt(1, eventNo);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				eventInfo.addProperty("Url", rs.getString(3));
+				eventInfo.addProperty("Description", rs.getString(4));
+			}
+			pstmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return eventInfo.toString();
+	}
 }

@@ -63,6 +63,14 @@ create table participate(
     primary key (ssn, EventNo, VoteNo)
 );
 
+create table material(
+    EventNo int not null,
+    MateNo int not null,
+    mFile varchar(200),
+    mDescription varchar(200),
+    foreign key (EventNo) references event(EventNo),
+    primary key (EventNo, MateNo)
+);
 
 commit;
 

@@ -1,5 +1,6 @@
 package com.example.test10
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -8,8 +9,13 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -66,6 +72,7 @@ class MainActivity : AppCompatActivity() {
     private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime : Long = 0
     lateinit var bottomMenu : String
+    private lateinit var getScannerResult : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -115,6 +122,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // 결과를 받기위한 콜백 등록
+        getScannerResult =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if(it.resultCode == Activity.RESULT_OK){
+                    Toast.makeText(this, "출석 성공", Toast.LENGTH_SHORT).show()
+                    changeFragment(1)
+                }else if(it.resultCode == Activity.RESULT_CANCELED){
+                    Toast.makeText(this, "출석 실패", Toast.LENGTH_SHORT).show()
+                    changeFragment(1)
+                }
+            }
     }
 
 
@@ -296,7 +314,8 @@ class MainActivity : AppCompatActivity() {
 
         when(view.id)   {
             R.id.qrBtn-> {
-                startActivity(Intent(applicationContext, ScannerActivity::class.java))
+                //startActivity(Intent(applicationContext, ScannerActivity::class.java))
+                getScannerResult.launch(Intent(applicationContext, ScannerActivity::class.java))
             }
             R.id.createVote->   {
                 changeFragment(9)
